@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dwellingly - Commission Infrastructure™
 
-## Getting Started
+**Dwellingly** is a premium "Commission Infrastructure" layer designed to protect real estate income in the post-NAR settlement era. It transitions agents from an implicit model to an explicit, verifiable digital standard for income protection.
 
-First, run the development server:
+## ✨ "Liquid Glass" Aesthetic
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The platform features a state-of-the-art **Liquid Glass** theme, built with:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Glassmorphism**: Translucent panels with multi-layered backdrops.
+- **Ambient Lighting**: Dynamic, blurred glows that follow the layout.
+- **Space Grotesk Typography**: A clean, high-precision font for a professional "Infrastructure" feel.
+- **Professional Accents**: A curated emerald primary color (`#308875`) representing security and growth.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **30-Second Handshake**: Initiate and sign representation agreements in under a minute, directly on mobile.
+- **Commission Certificates**: Immutable PDF certificates generated via Gemini AI and jsPDF.
+- **Public Verification**: A secure endpoint (`/verify/[id]`) for Title Companies and Listing Agents to validate agreements via QR/ID.
+- **Premium Command Center**: A high-performance dashboard with real-time tracking (Sent | Signed | Pending).
+- **Economic Shield**: Integrated billing and subscription management via Stripe.
 
-## Learn More
+## 🛠 Technical Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) (Vanilla CSS + Modern Utilities)
+- **Backend/Auth**: [Supabase](https://supabase.com/) (PostgreSQL + RLS + SSR Client)
+- **AI/LLM**: [Google GenAI SDK](https://ai.google.dev/gemini-api/docs) (`gemini-3-flash-preview`)
+- **PDF Generation**: [jsPDF](https://rawgit.com/MrRio/jsPDF/master/docs/index.html)
+- **Payments**: [Stripe](https://stripe.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏗 Development Status
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project is currently in the late "UI Polish" phase.
 
-## Deploy on Vercel
+- **Supabase Bypass**: For ease of local prototyping, a `SUPABASE_BYPASS` mode is active, allowing full UI development without a live backend.
+- **Production Ready**: The architecture is set up for high performance, mobile-first responsiveness, and standard compliance.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📖 Getting Started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Install Dependencies**:
+
+   ```bash
+   pnpm install
+   ```
+
+2. **Environment Variables**:
+   Copy `.env.example` to `.env.local` and fill in your credentials (or keep bypass enabled).
+
+3. **Run Development Server**:
+
+   ```bash
+   pnpm dev
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) to view the platform.
