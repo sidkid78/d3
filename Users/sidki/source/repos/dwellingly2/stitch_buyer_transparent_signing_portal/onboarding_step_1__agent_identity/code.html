@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding Step 1: Agent Identity | Dwellingly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e8a76",
+                        "primary-glow": "#308976",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0A0A0A",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .liquid-glow {
+            box-shadow: 0 0 40px 5px rgba(48, 137, 118, 0.35);
+        }
+        .bg-glow-spot {
+            background: radial-gradient(circle at 50% 50%, rgba(30, 138, 118, 0.15) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen relative overflow-hidden">
+<!-- Background Decorative Elements -->
+<div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-glow-spot pointer-events-none"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-glow-spot pointer-events-none"></div>
+<div class="relative flex h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between border-b border-white/10 px-8 py-4 glass-panel sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-black tracking-tight uppercase">Dwellingly</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex flex-col items-end mr-2">
+<span class="text-xs text-slate-400 font-medium">Pilot Program Access</span>
+<span class="text-sm font-bold">Agent Onboarding</span>
+</div>
+<div class="size-10 rounded-full border border-primary/30 p-0.5">
+<img alt="Agent profile" class="rounded-full w-full h-full object-cover" data-alt="Professional headshot of a real estate agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsZ4Arpwun35OWu90JXDP6Z0o_bM3kFGKsel7kCXIIFkssS2UxWMxdM2y-dSh6P9-r23CVJba4jA1PdTrcdm9UO7_6c0kRTRi-6g_OvdP1TDH55ksWd8hs9q3ukA-q4u2xdOpqKOdlVh6XhAJgolOu9y66gbpfZbEyFwwg3255MpuVwSblHQsM1-ChVmpS9VcoT8UV-sX0RsKDZOVnL5mI8HT7PZl_zVIrw2GBEZVIK0SHu8f01aZgTIOvkYAt5dkJSoSlVVgMseE"/>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col md:flex-row max-w-[1200px] mx-auto w-full p-6 md:p-12 gap-12">
+<!-- Left Column: Form -->
+<div class="flex-1 flex flex-col justify-center">
+<div class="mb-10">
+<span class="inline-block px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-4">
+                        Step 1 of 4
+                    </span>
+<h1 class="text-4xl md:text-5xl font-black mb-4 tracking-tight">Professional Identity</h1>
+<p class="text-slate-400 text-lg max-w-lg leading-relaxed">
+                        Verify your credentials to secure buyer representation and commission guarantees post-NAR settlement.
+                    </p>
+</div>
+<div class="glass-panel rounded-xl p-8 space-y-6">
+<div class="grid grid-cols-1 gap-6">
+<!-- Full Name -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-300 ml-1">Full Name</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">person</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-600" placeholder="Enter your legal name" type="text"/>
+</div>
+</div>
+<!-- License Number -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-300 ml-1">License Number</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">badge</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-600" placeholder="e.g., TREC #000000" type="text"/>
+</div>
+</div>
+<!-- Brokerage -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-300 ml-1">Brokerage Name</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">domain</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-lg py-4 pl-12 pr-4 text-white focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-600" placeholder="Current Firm Name" type="text"/>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all liquid-glow group">
+<span>Continue to Verification</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-2 pt-2">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+<span class="material-symbols-outlined text-primary text-sm">verified_user</span>
+<span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Aligned with TREC Form 1501</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Progress Tracker Sidebar -->
+<div class="w-full md:w-80 flex flex-col gap-8">
+<div class="glass-panel rounded-xl p-8 sticky top-32">
+<h3 class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-8">Pilot Onboarding</h3>
+<div class="space-y-0 relative">
+<!-- Step Line -->
+<div class="absolute left-4 top-2 bottom-2 w-0.5 bg-white/10"></div>
+<!-- Step 1 -->
+<div class="relative flex gap-4 pb-10 items-start">
+<div class="relative z-10 size-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(30,138,118,0.5)]">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-sm">Professional Identity</span>
+<span class="text-primary text-xs font-medium">In Progress</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex gap-4 pb-10 items-start opacity-50">
+<div class="relative z-10 size-8 rounded-full bg-slate-800 border border-white/20 flex items-center justify-center">
+<span class="text-xs font-bold">02</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-300 font-bold text-sm">Firm Verification</span>
+<span class="text-slate-500 text-xs font-medium">Coming Up</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex gap-4 pb-10 items-start opacity-50">
+<div class="relative z-10 size-8 rounded-full bg-slate-800 border border-white/20 flex items-center justify-center">
+<span class="text-xs font-bold">03</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-300 font-bold text-sm">Compensation Defaults</span>
+<span class="text-slate-500 text-xs font-medium">Pending</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex gap-4 items-start opacity-50">
+<div class="relative z-10 size-8 rounded-full bg-slate-800 border border-white/20 flex items-center justify-center">
+<span class="text-xs font-bold">04</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-300 font-bold text-sm">First Agreement</span>
+<span class="text-slate-500 text-xs font-medium">Final Step</span>
+</div>
+</div>
+</div>
+<div class="mt-10 pt-8 border-t border-white/10">
+<div class="bg-primary/5 rounded-lg p-4 border border-primary/20">
+<p class="text-[11px] text-slate-400 italic leading-relaxed">
+                                "Dwellingly ensures that your right to commission is legally protected in every interaction."
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer / Compliance Subtle -->
+<footer class="p-8 text-center text-slate-600 text-xs">
+            © 2024 Dwellingly Commission Infrastructure. All rights reserved. 
+            <span class="mx-2">|</span> 
+            Privacy Policy 
+            <span class="mx-2">|</span> 
+            Agent Support
+        </footer>
+</div>
+</body></html>

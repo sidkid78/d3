@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dwellingly - Title Disbursement Instructions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e8a32",
+                        "primary-dark": "#145f22",
+                        "accent-teal": "#308976",
+                        "accent-teal-dark": "#236658",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#0B120D", // Deepened for contrast
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "glass-surface": "rgba(255, 255, 255, 0.03)",
+                        "glass-highlight": "rgba(255, 255, 255, 0.1)",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    backgroundImage: {
+                        'liquid-glass': "linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)",
+                        'glow-gradient': "radial-gradient(circle at center, rgba(30, 138, 50, 0.15) 0%, transparent 70%)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Liquid Glass Utilities */
+        .glass-panel {
+            background: linear-gradient(180deg, rgba(30, 41, 35, 0.7) 0%, rgba(18, 26, 21, 0.9) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .verified-badge-glow {
+            box-shadow: 0 0 15px rgba(30, 138, 50, 0.4);
+        }
+        
+        body {
+            background-color: #0B120D;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(30, 138, 50, 0.08), transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(48, 137, 118, 0.08), transparent 40%);
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 w-full glass-panel border-b-0 border-b-glass-border">
+<div class="px-6 md:px-10 py-4 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<!-- Logo -->
+<div class="flex items-center gap-3 text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h2 class="text-white text-xl font-bold tracking-tight">Dwellingly</h2>
+</div>
+<!-- Nav Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-white/70 hover:text-white text-sm font-medium transition-colors" href="#">Dashboard</a>
+<a class="text-white text-sm font-medium border-b-2 border-primary py-1" href="#">Verifications</a>
+<a class="text-white/70 hover:text-white text-sm font-medium transition-colors" href="#">History</a>
+<a class="text-white/70 hover:text-white text-sm font-medium transition-colors" href="#">Settings</a>
+</nav>
+</div>
+<!-- Search & User -->
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex relative group w-80">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-white/40 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2.5 rounded-lg bg-black/20 border border-white/10 text-white placeholder-white/30 focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-all shadow-inner" placeholder="Search Transaction ID or Agent..." type="text" value="DW-8829-XJ"/>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-white/10">
+<div class="text-right hidden sm:block">
+<p class="text-white text-xs font-medium">Alex Morgan</p>
+<p class="text-white/40 text-[10px] uppercase tracking-wider">Title Officer</p>
+</div>
+<div class="size-9 rounded-full bg-cover bg-center border border-white/10 shadow-lg" data-alt="Profile picture of a title officer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbcpzdjnyIPuz3k8tLyroAndgbqPg79zDVOMfPlWef6Faoazk3c3xUaaV9Ez2yu7hG8XN7aLbwUDgCO-q8g2HHOX0Y3I4vg2veqYxoh5evvHM3pS9ha-ViLMAumsCe3yWhP3EGt9OgrNGh4r_c6xt2Vaqy5Zk7P_E3gEV9REkj8EtNKqbKujOsclwPmw7HQvOemCVWHknp8Kl7RuIQFwikl3KOdfYMDu4Rg-1DLMAbuseCtvhy3Fw2vLXQeUnuFyS6Hp1HHXNDVZs");'></div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-start pt-8 pb-16 px-4 sm:px-6 relative overflow-hidden">
+<!-- Ambient Background Glow -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+<div class="w-full max-w-5xl flex flex-col gap-6">
+<!-- Breadcrumb / Status Bar -->
+<div class="flex flex-wrap items-center justify-between gap-4 px-2">
+<div class="flex items-center gap-2 text-white/50 text-sm">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+<span>Back to Search</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-white/40 text-xs uppercase tracking-widest font-semibold">Last Updated: Today, 10:42 AM</span>
+<span class="h-1 w-1 rounded-full bg-white/20"></span>
+<span class="text-primary text-xs font-medium flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        Live
+                    </span>
+</div>
+</div>
+<!-- Primary Verification Card -->
+<div class="glass-panel rounded-xl overflow-hidden relative">
+<!-- Top Decorative Line -->
+<div class="h-1 w-full bg-gradient-to-r from-primary/0 via-primary to-primary/0 opacity-50"></div>
+<div class="p-8 md:p-10 relative z-10">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Verified Commission Instructions</h1>
+<span class="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1 verified-badge-glow">
+<span class="material-symbols-outlined text-sm">verified</span>
+                                    Verified
+                                </span>
+</div>
+<p class="text-[#9B9C9C] text-lg font-light tracking-wide flex items-center gap-2">
+                                Transaction ID #DW-8829-XJ 
+                                <span class="text-white/20">•</span>
+<span class="text-white/80">123 Skyline Dr, Austin, TX</span>
+</p>
+</div>
+<button class="group relative overflow-hidden bg-accent-teal hover:bg-accent-teal-dark text-white font-medium py-3 px-6 rounded-lg shadow-lg shadow-accent-teal/20 transition-all flex items-center gap-3">
+<span class="material-symbols-outlined">download</span>
+<span>Download for Closing</span>
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+</button>
+</div>
+<!-- Main Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Agent & Buyer Info -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Agent/Brokerage Box -->
+<div class="glass-card p-6 rounded-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white/20 text-4xl">real_estate_agent</span>
+</div>
+<h3 class="text-white/60 text-xs font-bold uppercase tracking-widest mb-4">Agent &amp; Brokerage Representation</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-4">
+<div>
+<p class="text-[#9B9C9C] text-sm mb-1">Agent Name</p>
+<p class="text-white font-medium text-lg">Sarah Jenkins</p>
+<p class="text-white/40 text-xs mt-1">Lic: CA-DRE #01234567</p>
+</div>
+<div>
+<p class="text-[#9B9C9C] text-sm mb-1">Brokerage</p>
+<p class="text-white font-medium text-lg">Luxe Realty Group</p>
+<p class="text-white/40 text-xs mt-1">Lic: CA-DRE #98765432</p>
+</div>
+</div>
+</div>
+<!-- Buyer Box -->
+<div class="glass-card p-6 rounded-lg">
+<h3 class="text-white/60 text-xs font-bold uppercase tracking-widest mb-4">Buyer Details</h3>
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center text-white/50 border border-white/10">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="text-[#9B9C9C] text-sm mb-0.5">Buyer Name(s)</p>
+<p class="text-white font-medium text-lg">Michael &amp; Jane Doe</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Financial Breakdown -->
+<div class="lg:col-span-5 flex flex-col h-full">
+<div class="glass-card p-8 rounded-lg h-full border-l-4 border-l-primary flex flex-col justify-between bg-gradient-to-b from-white/[0.04] to-transparent">
+<div>
+<h3 class="text-white/60 text-xs font-bold uppercase tracking-widest mb-6">Financial Breakdown</h3>
+<div class="space-y-5">
+<div class="flex justify-between items-end pb-4 border-b border-white/5">
+<div>
+<p class="text-[#9B9C9C] text-sm">Commission Rate</p>
+<p class="text-xs text-primary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">check_circle</span> Verified
+                                                </p>
+</div>
+<p class="text-white text-2xl font-light">2.50%</p>
+</div>
+<div class="flex justify-between items-end pb-4 border-b border-white/5">
+<div>
+<p class="text-[#9B9C9C] text-sm">Fixed Fee</p>
+<p class="text-xs text-primary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">check_circle</span> Verified
+                                                </p>
+</div>
+<p class="text-white text-2xl font-light">$495.00</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/10">
+<p class="text-[#9B9C9C] text-sm mb-2">Total Disbursement</p>
+<div class="flex items-center gap-3">
+<p class="text-white text-4xl font-bold tracking-tight">$12,995.00</p>
+<span class="material-symbols-outlined text-primary text-2xl" title="Secure &amp; Verified">lock</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Subtle Grid Background within Card -->
+<div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" data-alt="Subtle noise texture overlay"></div>
+</div>
+<!-- Secondary Section: Disbursement Instructions -->
+<div class="glass-panel rounded-xl p-8 border-t-0 border-white/5 relative mt-2">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-white/40">account_balance</span>
+<h3 class="text-white text-lg font-semibold">Disbursement Instructions</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="space-y-1">
+<p class="text-[#9B9C9C] text-xs uppercase tracking-wider">Bank Name</p>
+<p class="text-white text-sm font-medium">First Republic Bank</p>
+</div>
+<div class="space-y-1">
+<p class="text-[#9B9C9C] text-xs uppercase tracking-wider">Routing Number</p>
+<div class="flex items-center gap-2">
+<p class="text-white text-sm font-mono tracking-wide">121000358</p>
+<button class="text-white/40 hover:text-white transition-colors" title="Copy">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[#9B9C9C] text-xs uppercase tracking-wider">Account Number</p>
+<div class="flex items-center gap-2">
+<p class="text-white text-sm font-mono tracking-wide">•••• 8829</p>
+<button class="text-white/40 hover:text-white transition-colors" title="Reveal">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[#9B9C9C] text-xs uppercase tracking-wider">Beneficiary</p>
+<p class="text-white text-sm font-medium">Luxe Realty Trust Account</p>
+</div>
+</div>
+<div class="mt-6 p-4 rounded bg-yellow-500/5 border border-yellow-500/10 flex items-start gap-3">
+<span class="material-symbols-outlined text-yellow-500/60 mt-0.5">warning</span>
+<p class="text-yellow-200/60 text-sm leading-relaxed">
+<strong class="text-yellow-500/80">Wire Fraud Warning:</strong> Before wiring any funds, verify these instructions by calling the verified number for Luxe Realty Group at (555) 123-4567. Dwellingly does not process the transfer of funds directly.
+                    </p>
+</div>
+</div>
+<!-- Footer Compliance -->
+<footer class="text-center py-6 px-4">
+<div class="flex justify-center items-center gap-6 mb-4">
+<span class="text-white/20 text-2xl font-display font-bold">Dwellingly</span>
+<div class="h-4 w-px bg-white/10"></div>
+<span class="text-white/20 text-sm">NAR Settlement Compliant</span>
+</div>
+<p class="text-[#555] text-xs max-w-2xl mx-auto leading-relaxed">
+                    This document serves as verified commission instructions pursuant to the buyer representation agreement on file. Dwellingly is a secure infrastructure platform and is not a party to the transaction. Use of this data is subject to our Terms of Service and Privacy Policy.
+                </p>
+</footer>
+</div>
+</main>
+</body></html>

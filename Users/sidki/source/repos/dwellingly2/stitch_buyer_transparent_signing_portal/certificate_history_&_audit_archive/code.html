@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Certificate History &amp; Audit Archive | Dwellingly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#308875",
+            "background-light": "#f6f8f7",
+            "background-dark": "#0A0A0A",
+            "glass-card": "#000000",
+            "label-muted": "#9B9C9C",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .liquid-glass {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(155, 156, 156, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    }
+    .liquid-glass:hover {
+      border: 1px solid rgba(48, 136, 117, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(48, 136, 117, 0.1);
+    }
+    body {
+      background-color: #0A0A0A;
+    }
+  </style>
+</head>
+<body class="font-display text-slate-100 selection:bg-primary/30">
+<div class="flex min-h-screen bg-background-dark">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-slate-800/50 flex flex-col fixed h-full bg-background-dark z-50">
+<div class="p-6 flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white">shield_person</span>
+</div>
+<div>
+<h1 class="font-black text-lg leading-tight tracking-tight">Dwellingly</h1>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">Infrastructure</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-label-muted hover:bg-slate-800/40 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-label-muted hover:bg-slate-800/40 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">description</span>
+<span class="text-sm font-medium">Active Certificates</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary border border-primary/20" href="#">
+<span class="material-symbols-outlined text-[22px] fill-1">inventory_2</span>
+<span class="text-sm font-medium tracking-wide">Audit Archive</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-label-muted hover:bg-slate-800/40 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">group</span>
+<span class="text-sm font-medium">Agent Teams</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-label-muted hover:bg-slate-800/40 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+<span class="text-sm font-medium">Compliance Vault</span>
+</a>
+</nav>
+<div class="p-6 border-t border-slate-800/50">
+<div class="flex items-center gap-3 p-2 rounded-xl bg-slate-900/50 border border-slate-800">
+<div class="h-8 w-8 rounded-full bg-gradient-to-tr from-primary to-emerald-400" data-alt="User profile avatar gradient"></div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold truncate">Sarah Jenkins</p>
+<p class="text-[10px] text-label-muted">Principal Broker</p>
+</div>
+<span class="material-symbols-outlined text-label-muted text-sm">settings</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-64 p-8">
+<!-- Top Header & Actions -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+<div class="space-y-1">
+<div class="flex items-center gap-2 text-primary font-bold text-sm mb-2">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+            HISTORY MANAGEMENT
+          </div>
+<h2 class="text-4xl font-black tracking-tight text-white">Certificate History &amp; Audit Archive</h2>
+<p class="text-label-muted max-w-2xl">Secure long-term repository for buyer representation agreements and commission guarantees compliant with post-NAR settlement regulations.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">download_for_offline</span>
+            Compliance Export
+          </button>
+</div>
+</div>
+<!-- Quick Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+<div class="liquid-glass p-6 rounded-2xl flex items-center justify-between border-l-4 border-l-primary">
+<div>
+<p class="text-xs font-bold text-label-muted uppercase tracking-wider mb-1">Total Protected Value</p>
+<h3 class="text-3xl font-black text-white">$14,280,000</h3>
+<p class="text-[11px] text-emerald-400 font-bold mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12.4% from last quarter
+            </p>
+</div>
+<div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+</div>
+<div class="liquid-glass p-6 rounded-2xl flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-label-muted uppercase tracking-wider mb-1">Archived Records</p>
+<h3 class="text-3xl font-black text-white">1,042</h3>
+<p class="text-[11px] text-label-muted font-bold mt-1">Full audit trails secured</p>
+</div>
+<div class="h-12 w-12 rounded-full bg-slate-800/50 flex items-center justify-center text-label-muted">
+<span class="material-symbols-outlined">archive</span>
+</div>
+</div>
+<div class="liquid-glass p-6 rounded-2xl flex items-center justify-between">
+<div>
+<p class="text-xs font-bold text-label-muted uppercase tracking-wider mb-1">Compliance Health</p>
+<h3 class="text-3xl font-black text-white">100%</h3>
+<p class="text-[11px] text-primary font-bold mt-1">Verified Audit-Ready</p>
+</div>
+<div class="h-12 w-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+<span class="material-symbols-outlined">verified</span>
+</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="liquid-glass p-4 rounded-xl mb-6 flex flex-wrap items-center gap-4 border-slate-800/30">
+<div class="flex-1 min-w-[300px] relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-label-muted text-xl">search</span>
+<input class="w-full bg-slate-900/40 border-slate-700/50 rounded-lg pl-12 py-2.5 text-sm focus:ring-primary focus:border-primary text-white" placeholder="Search by Buyer Name or Certificate ID..." type="text"/>
+</div>
+<div class="h-8 w-px bg-slate-800 mx-2 hidden lg:block"></div>
+<div class="flex items-center gap-2">
+<label class="text-[10px] font-black text-label-muted uppercase tracking-widest">Year</label>
+<select class="bg-slate-900/40 border-slate-700/50 rounded-lg py-2 pl-3 pr-10 text-xs text-white focus:ring-primary">
+<option>All Years</option>
+<option selected="">2024</option>
+<option>2023</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-[10px] font-black text-label-muted uppercase tracking-widest">Agent</label>
+<select class="bg-slate-900/40 border-slate-700/50 rounded-lg py-2 pl-3 pr-10 text-xs text-white focus:ring-primary">
+<option selected="">All Teams</option>
+<option>Resi-Squad A</option>
+<option>Elite Luxury Group</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<label class="text-[10px] font-black text-label-muted uppercase tracking-widest">Status</label>
+<select class="bg-slate-900/40 border-slate-700/50 rounded-lg py-2 pl-3 pr-10 text-xs text-white focus:ring-primary">
+<option selected="">Closed &amp; Active</option>
+<option>Closed</option>
+<option>Active</option>
+<option>Expired</option>
+</select>
+</div>
+<button class="ml-auto flex items-center gap-1.5 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+          Clear All
+        </button>
+</div>
+<!-- Data Grid Area -->
+<div class="space-y-4">
+<!-- Grid Header (Desktop only) -->
+<div class="hidden lg:grid grid-cols-12 px-6 py-2 text-[10px] font-black text-label-muted uppercase tracking-widest">
+<div class="col-span-4">Buyer Entity &amp; ID</div>
+<div class="col-span-2 text-center">Protected Value</div>
+<div class="col-span-2 text-center">Execution Date</div>
+<div class="col-span-2 text-center">Status</div>
+<div class="col-span-2 text-right">Actions</div>
+</div>
+<!-- Certificate Card 1 -->
+<div class="liquid-glass rounded-xl p-6 grid grid-cols-1 lg:grid-cols-12 items-center gap-4 transition-all">
+<div class="lg:col-span-4 flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-slate-900 flex items-center justify-center border border-slate-800">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg">Jonathan &amp; Maria Sterling</h4>
+<p class="text-xs font-mono text-label-muted">ID: <span class="text-primary/80">CERT-2024-X892-01</span></p>
+</div>
+</div>
+<div class="lg:col-span-2 text-center">
+<p class="text-xs text-label-muted mb-1 lg:hidden font-bold">Value</p>
+<p class="text-white font-black text-xl">$1,450,000</p>
+<p class="text-[10px] text-primary/70">3.0% Commission Protected</p>
+</div>
+<div class="lg:col-span-2 text-center">
+<p class="text-xs text-label-muted mb-1 lg:hidden font-bold">Signed</p>
+<p class="text-white font-medium text-sm">March 12, 2024</p>
+<p class="text-[10px] text-label-muted">Expires: Sep 12, 2024</p>
+</div>
+<div class="lg:col-span-2 flex justify-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-[10px] font-black uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              Active Record
+            </span>
+</div>
+<div class="lg:col-span-2 flex justify-end gap-2">
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 hover:border-primary/50 text-slate-300 hover:text-white transition-all" title="View PDF">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 hover:border-primary/50 text-slate-300 hover:text-white transition-all" title="Download">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 hover:border-primary/50 text-slate-300 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Certificate Card 2 -->
+<div class="liquid-glass rounded-xl p-6 grid grid-cols-1 lg:grid-cols-12 items-center gap-4 transition-all opacity-80">
+<div class="lg:col-span-4 flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-slate-900 flex items-center justify-center border border-slate-800">
+<span class="material-symbols-outlined text-label-muted">verified</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg">Oakwood Estate Holdings</h4>
+<p class="text-xs font-mono text-label-muted">ID: <span class="text-primary/80">CERT-2023-V114-09</span></p>
+</div>
+</div>
+<div class="lg:col-span-2 text-center">
+<p class="text-xs text-label-muted mb-1 lg:hidden font-bold">Value</p>
+<p class="text-white font-black text-xl">$890,000</p>
+<p class="text-[10px] text-label-muted">2.5% Commission Protected</p>
+</div>
+<div class="lg:col-span-2 text-center">
+<p class="text-xs text-label-muted mb-1 lg:hidden font-bold">Signed</p>
+<p class="text-white font-medium text-sm">Dec 04, 2023</p>
+<p class="text-[10px] text-label-muted italic">Audited Dec 28, 2023</p>
+</div>
+<div class="lg:col-span-2 flex justify-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 text-label-muted border border-slate-700/50 text-[10px] font-black uppercase">
+              Closed Record
+            </span>
+</div>
+<div class="lg:col-span-2 flex justify-end gap-2">
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Certificate Card 3 -->
+<div class="liquid-glass rounded-xl p-6 grid grid-cols-1 lg:grid-cols-12 items-center gap-4 transition-all">
+<div class="lg:col-span-4 flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-slate-900 flex items-center justify-center border border-slate-800">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg">The Chen-Watanabe Family</h4>
+<p class="text-xs font-mono text-label-muted">ID: <span class="text-primary/80">CERT-2024-B900-54</span></p>
+</div>
+</div>
+<div class="lg:col-span-2 text-center">
+<p class="text-xs text-label-muted mb-1 lg:hidden font-bold">Value</p>
+<p class="text-white font-black text-xl">$2,120,000</p>
+<p class="text-[10px] text-primary/70">2.75% Commission Protected</p>
+</div>
+<div class="lg:col-span-2 text-center">
+<p class="text-xs text-label-muted mb-1 lg:hidden font-bold">Signed</p>
+<p class="text-white font-medium text-sm">Feb 28, 2024</p>
+<p class="text-[10px] text-label-muted">Expires: Aug 28, 2024</p>
+</div>
+<div class="lg:col-span-2 flex justify-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-[10px] font-black uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              Active Record
+            </span>
+</div>
+<div class="lg:col-span-2 flex justify-end gap-2">
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Certificate Card 4 (Expired) -->
+<div class="liquid-glass rounded-xl p-6 grid grid-cols-1 lg:grid-cols-12 items-center gap-4 transition-all opacity-60">
+<div class="lg:col-span-4 flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-slate-900 flex items-center justify-center border border-slate-800">
+<span class="material-symbols-outlined text-label-muted">history</span>
+</div>
+<div>
+<h4 class="text-white font-bold text-lg">Marcus Thornton</h4>
+<p class="text-xs font-mono text-label-muted">ID: <span class="text-primary/80">CERT-2023-Z776-12</span></p>
+</div>
+</div>
+<div class="lg:col-span-2 text-center">
+<p class="text-white font-black text-xl">$540,000</p>
+<p class="text-[10px] text-label-muted">Expired Agreement</p>
+</div>
+<div class="lg:col-span-2 text-center">
+<p class="text-white font-medium text-sm">Aug 15, 2023</p>
+<p class="text-[10px] text-red-400 font-bold uppercase">Terminated Feb 2024</p>
+</div>
+<div class="lg:col-span-2 flex justify-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 text-label-muted border border-slate-800 text-[10px] font-black uppercase">
+              Expired
+            </span>
+</div>
+<div class="lg:col-span-2 flex justify-end gap-2">
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+<button class="h-10 w-10 flex items-center justify-center rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pagination Footer -->
+<div class="mt-10 flex items-center justify-between">
+<p class="text-xs text-label-muted font-medium">Showing <span class="text-white font-bold">1-10</span> of 1,042 archived records</p>
+<div class="flex items-center gap-1">
+<button class="h-8 w-8 flex items-center justify-center rounded-lg bg-slate-900 text-label-muted hover:text-white border border-slate-800 transition-colors">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="h-8 w-8 flex items-center justify-center rounded-lg bg-primary text-white border border-primary/20 text-xs font-bold">1</button>
+<button class="h-8 w-8 flex items-center justify-center rounded-lg bg-slate-900 text-label-muted hover:text-white border border-slate-800 text-xs font-bold">2</button>
+<button class="h-8 w-8 flex items-center justify-center rounded-lg bg-slate-900 text-label-muted hover:text-white border border-slate-800 text-xs font-bold">3</button>
+<span class="px-2 text-label-muted">...</span>
+<button class="h-8 w-8 flex items-center justify-center rounded-lg bg-slate-900 text-label-muted hover:text-white border border-slate-800 text-xs font-bold">104</button>
+<button class="h-8 w-8 flex items-center justify-center rounded-lg bg-slate-900 text-label-muted hover:text-white border border-slate-800 transition-colors">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<!-- Compliance Bulk Export Toast/Panel (Floating Bottom Right) -->
+<div class="fixed bottom-6 right-6 z-[100]">
+<div class="liquid-glass border-primary/30 p-1 rounded-2xl flex items-center gap-1 overflow-hidden">
+<div class="px-4 py-3 flex items-center gap-3">
+<div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<p class="text-xs font-bold"><span class="text-primary">12 Records Selected</span> for Bulk Export</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-xl font-bold text-xs flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm">print</span>
+        Generate PDF Package
+      </button>
+<button class="p-3 text-label-muted hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+</body></html>

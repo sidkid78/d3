@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Team Management &amp; Performance Dashboard | Dwellingly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#308875",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0A0A0A",
+                        "glass": "rgba(0, 0, 0, 0.6)",
+                        "muted": "#9B9C9C",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .liquid-glow {
+            box-shadow: 0 0 40px -10px rgba(48, 136, 117, 0.3);
+        }
+        .sidebar-item-active {
+            background: rgba(48, 136, 117, 0.15);
+            border-left: 3px solid #308875;
+        }
+        body {
+            background-color: #0A0A0A;
+            color: #FFFFFF;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-display selection:bg-primary/30">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 flex flex-col glass-panel border-r border-white/5 z-20">
+<div class="p-8 flex items-center gap-3">
+<div class="size-10 rounded-lg bg-primary flex items-center justify-center liquid-glow">
+<span class="material-symbols-outlined text-white text-2xl">shield_with_heart</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-white">Dwellingly</h1>
+<p class="text-[10px] uppercase tracking-widest text-primary font-semibold">Infrastructure</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-2">
+<div class="text-muted text-[10px] uppercase tracking-widest px-4 pb-2 font-bold">Main Management</div>
+<a class="sidebar-item-active flex items-center gap-3 px-4 py-3 rounded-lg text-white transition-all" href="#">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+<span class="text-sm font-medium">Team Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-muted hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-sm font-medium">Agent Performance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-muted hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="text-sm font-medium">Resource Allocation</span>
+</a>
+<div class="pt-8 text-muted text-[10px] uppercase tracking-widest px-4 pb-2 font-bold">Compliance</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-muted hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-sm font-medium">NAR Compliance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-muted hover:text-white hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="text-sm font-medium">Agreement Vault</span>
+</a>
+</nav>
+<div class="p-6 mt-auto">
+<div class="glass-panel p-4 rounded-xl flex items-center gap-3">
+<div class="size-10 rounded-full overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="Headshot of Team Leader" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd2C1NmgxKArcfmjgGoJ7XTP2p6waw1-p4ENEnvUqnMD86lwjm8EksKpq8zmRkCDLx-XYgpSXBgvr6-9AqX0ZskKPhO5A-fNlUyK9pWvBFotIcr6WyHo7VZpdwU_Q51sHWUCjfbygwRnGzw_VsY5WyKIxTXLxnAwTEW2uxK_u3OkTP5sWsDc_pJIEm1RdZFM3BdUIOmxfEE9iisZK_L-ynKKZb_dwVXfeJ2y8HqBuIqB7AjH-DYyK9sTtVSdWqatsb37GEnLL02iA"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-white truncate">Marcus Sterling</p>
+<p class="text-xs text-muted truncate">Team Lead</p>
+</div>
+<span class="material-symbols-outlined text-muted text-sm">settings</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto relative bg-[#0A0A0A]">
+<!-- Decorative Glow Background -->
+<div class="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full -z-10"></div>
+<div class="max-w-7xl mx-auto px-10 py-12">
+<!-- Header Section with Protection Score Dial -->
+<header class="flex flex-col lg:flex-row items-center justify-between gap-12 mb-16">
+<div class="max-w-xl">
+<h2 class="text-muted text-sm font-bold uppercase tracking-[0.2em] mb-3">Analytics Dashboard</h2>
+<h1 class="text-5xl font-black text-white leading-tight mb-6">Team Protection <span class="text-primary">Score</span></h1>
+<p class="text-muted text-lg leading-relaxed">
+                            Your high-level overview of team commission guarantees and buyer representation status in the post-NAR settlement landscape.
+                        </p>
+<div class="flex items-center gap-4 mt-8">
+<button class="bg-primary text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-primary/90 transition-all liquid-glow">
+<span class="material-symbols-outlined">add_circle</span>
+                                New Protection Audit
+                            </button>
+<button class="glass-panel text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined">file_download</span>
+                                Export Report
+                            </button>
+</div>
+</div>
+<!-- Protection Dial SVG -->
+<div class="relative flex items-center justify-center p-8">
+<svg class="size-64 transform -rotate-90">
+<circle class="text-white/5" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-width="12"></circle>
+<circle class="drop-shadow-[0_0_10px_rgba(48,136,117,0.8)]" cx="128" cy="128" fill="transparent" r="110" stroke="#308875" stroke-dasharray="691" stroke-dashoffset="83" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-6xl font-black text-white">88<span class="text-3xl text-primary">%</span></span>
+<span class="text-[10px] uppercase font-bold tracking-widest text-muted mt-2">Protected Deals</span>
+</div>
+</div>
+</header>
+<!-- Metric Cards Row -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="glass-panel p-8 rounded-xl group hover:border-primary/50 transition-all duration-300">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">shield</span>
+<span class="text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded">+12.5%</span>
+</div>
+<p class="text-muted text-sm font-medium mb-1 uppercase tracking-wider">Commissions Protected</p>
+<h3 class="text-3xl font-bold text-white">$1,240,500</h3>
+</div>
+<div class="glass-panel p-8 rounded-xl group hover:border-primary/50 transition-all duration-300">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">timer</span>
+<span class="text-orange-500 text-xs font-bold bg-orange-500/10 px-2 py-1 rounded">-0.8%</span>
+</div>
+<p class="text-muted text-sm font-medium mb-1 uppercase tracking-wider">Avg. Time to Sign</p>
+<h3 class="text-3xl font-bold text-white">4.2 Days</h3>
+</div>
+<div class="glass-panel p-8 rounded-xl group hover:border-primary/50 transition-all duration-300">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
+<span class="text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded">Top Pro</span>
+</div>
+<p class="text-muted text-sm font-medium mb-1 uppercase tracking-wider">Top Performing Agent</p>
+<h3 class="text-3xl font-bold text-white">Sarah Jenkins</h3>
+</div>
+</section>
+<!-- Agent Leaderboard -->
+<section class="glass-panel rounded-xl overflow-hidden mb-12">
+<div class="p-6 border-b border-white/5 flex items-center justify-between bg-white/5">
+<h2 class="text-xl font-bold text-white flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">leaderboard</span>
+                            Agent Leaderboard
+                        </h2>
+<div class="flex gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted text-lg">search</span>
+<input class="bg-[#0A0A0A] border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-primary focus:border-primary text-white w-64" placeholder="Filter agents..." type="text"/>
+</div>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/2 text-muted uppercase text-[11px] font-bold tracking-widest border-b border-white/5">
+<th class="px-8 py-4">Agent Name</th>
+<th class="px-6 py-4">Active Agreements</th>
+<th class="px-6 py-4">Protected Volume</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Agent 1 -->
+<tr class="hover:bg-white/[0.03] transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="Agent Sarah Jenkins profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBR_-dZDo8DKMfGGq_TluBu2Jg0vpAJVTZbC9vJN2JvvepavTo1mhd11h_0oMMJDingNeuw5gpuZn87tj7Cy4BTn9CZmWIy6sP-IjAMZgE1p1HgIyv_QQC8DZm1LRXttKNb_AZcPNATyajvtFQt_EwFllzPPVRsRu6jV6iMhuTdSe_j2YerTMCngPoJcs7sP-bQfBx7X-mTOvVfUm-6FQJLGIEav7LfOmFycRLA2ciP48-voyJ4eo_FCitgHdKWpq-qc5P-yhlOQ0"/>
+</div>
+<div>
+<p class="font-bold text-white">Sarah Jenkins</p>
+<p class="text-xs text-muted">Senior Associate</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="text-white font-semibold">24</span>
+<span class="text-[10px] text-primary bg-primary/10 px-1.5 py-0.5 rounded font-bold">HIGH</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="w-48">
+<div class="flex justify-between text-xs mb-1.5">
+<span class="text-white font-medium">$420,000</span>
+<span class="text-muted">95%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full liquid-glow" style="width: 95%;"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-sm font-medium text-primary">Active</span>
+</label>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-white/10 rounded-lg text-muted transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Agent 2 -->
+<tr class="hover:bg-white/[0.03] transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="Agent Robert Fox profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfGRmpc7USed855ArfewK2fAWdIVbvK8aL565lPCXTeFU9MHhFLz5FANrHaPSEN0pXO1ocU5T8sTXg2nz4jHjB-eMT3NVT-5nSKGFV3uXRjkDzwwknepS7tDljMFJ0W5amDuLatHOwneu75PTxjjYtb6xh0HtUqbHPGJrfcx70-qGXolVxSJ-B-1p9rPlVOEeprlkR5_nOHbqgJRi5vox5-TXDUofPvfmqW_5G7TTuW7y30fOFdyog9N3cEfNZI8YrKKG64DNmb_U"/>
+</div>
+<div>
+<p class="font-bold text-white">Robert Fox</p>
+<p class="text-xs text-muted">Associate</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="text-white font-semibold">18</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="w-48">
+<div class="flex justify-between text-xs mb-1.5">
+<span class="text-white font-medium">$310,000</span>
+<span class="text-muted">78%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 78%;"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-sm font-medium text-primary">Active</span>
+</label>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-white/10 rounded-lg text-muted transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Agent 3 -->
+<tr class="hover:bg-white/[0.03] transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="Agent Emily Chen profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeO22KO1Xkc-aR8Gq_NYroVDa4ePmFcWzS512oy0_3fuOCboZIALFT99VNFsmJIhtDnt_ZrUFs6Sy0XPnTRHCqwm_BLiSToEJn5KhuHe3J6ZtlMneQ1GOLAGku6WfW5v0Kbm2FMHW8WGVHCUQo4Qev9dWSfvu26tV89ThKcXylTIqWqa-r_C4nxJ9QJQiKVL3UlRrsj9mz32msnXcKW6xWIvBE0-fzP5wrevvRLUFjWs8OTfYo6_I-PvYpNazcj4ehaKvvMOrQM_I"/>
+</div>
+<div>
+<p class="font-bold text-white">Emily Chen</p>
+<p class="text-xs text-muted">Junior Agent</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="text-white font-semibold">05</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="w-48">
+<div class="flex justify-between text-xs mb-1.5">
+<span class="text-white font-medium">$85,000</span>
+<span class="text-muted">42%</span>
+</div>
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary/40 rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-sm font-medium text-muted">Onboarding</span>
+</label>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="p-2 hover:bg-white/10 rounded-lg text-muted transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

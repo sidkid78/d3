@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CRM &amp; Integration Settings | Dwellingly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#308875",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0A0A0A", // Custom ultra-dark for Liquid Glass feel
+                        "card-dark": "rgba(0, 0, 0, 0.6)",
+                        "text-secondary": "#9B9C9C",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .liquid-glass {
+            background: rgba(20, 30, 28, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+        .glossy-border {
+            border: 1px solid rgba(48, 136, 117, 0.3);
+        }
+        .status-glow {
+            box-shadow: 0 0 15px rgba(48, 136, 117, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-6 lg:px-20 py-4 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl">account_balance_wallet</span>
+</div>
+<h2 class="text-white text-xl font-black leading-tight tracking-tight">Dwellingly</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-text-secondary hover:text-white text-sm font-medium transition-colors" href="#">Dashboard</a>
+<a class="text-text-secondary hover:text-white text-sm font-medium transition-colors" href="#">Commission</a>
+<a class="text-white text-sm font-semibold border-b-2 border-primary pb-1" href="#">Integrations</a>
+<a class="text-text-secondary hover:text-white text-sm font-medium transition-colors" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-white/5 rounded-xl px-3 py-1.5 border border-white/10">
+<span class="material-symbols-outlined text-text-secondary text-sm mr-2">search</span>
+<input class="bg-transparent border-none text-sm focus:ring-0 text-white placeholder:text-text-secondary w-48" placeholder="Quick search..." type="text"/>
+</div>
+<button class="p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-primary/30 overflow-hidden bg-white/5">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Abstract minimalist user profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0INjZEwtnrUJdU6xkrDP7GaTnvBd7a0veyuDestTXf7Evk2JlAup39vTjUuBgma_QsNtZ41eL1MoMSUUk-QUOaljfnfsuwcHaqb5ypjhljgub8X9KqlPeSvZ9Gr3pTBWyPovRfyYKwPKirUeVE27fJnt10D-Iy28FDOBQcpRqa27C1m94HiBE8AkPu-bHlaZkdz7U3Tk1_88Qa-d7LsO5LBhleEPDORL26son28LP88O8CEYK-Qmhx2VyYHIcO0q2n6zHn7ymyyk"/>
+</div>
+</div>
+</header>
+<main class="flex-1 px-6 lg:px-20 py-10 max-w-7xl mx-auto w-full">
+<!-- Page Header & Global Sync Status -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="space-y-2">
+<h1 class="text-white text-4xl font-black tracking-tight lg:text-5xl">CRM &amp; Tech Stack <br/><span class="text-primary">Integrations</span></h1>
+<p class="text-text-secondary text-lg max-w-xl">
+                            Secure your buyer representation and commission guarantees with seamless, real-time data synchronization across your tools.
+                        </p>
+</div>
+<div class="liquid-glass rounded-2xl p-4 flex items-center gap-4 glossy-border">
+<div class="relative">
+<div class="size-3 bg-primary rounded-full status-glow"></div>
+<div class="absolute inset-0 size-3 bg-primary rounded-full animate-ping opacity-40"></div>
+</div>
+<div>
+<div class="text-white text-sm font-bold leading-none mb-1">Global Sync: Connected</div>
+<div class="text-text-secondary text-xs">Last update: 2 mins ago</div>
+</div>
+<button class="ml-4 px-4 py-2 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary/90 transition-all uppercase tracking-wider">
+                            Sync Now
+                        </button>
+</div>
+</div>
+<!-- Tabs & Filters -->
+<div class="flex flex-col gap-6 mb-8">
+<div class="flex items-center gap-4 overflow-x-auto pb-2 scrollbar-hide">
+<button class="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all">All Platforms</button>
+<button class="bg-white/5 text-text-secondary hover:text-white px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all border border-white/5">CRM</button>
+<button class="bg-white/5 text-text-secondary hover:text-white px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all border border-white/5">Transaction Management</button>
+<button class="bg-white/5 text-text-secondary hover:text-white px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all border border-white/5">Marketing</button>
+<button class="bg-white/5 text-text-secondary hover:text-white px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all border border-white/5">Compliance</button>
+</div>
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-secondary">search</span>
+<input class="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all" placeholder="Search for an integration (e.g., Follow Up Boss, Salesforce...)" type="text"/>
+</div>
+</div>
+<!-- Integration Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Integration Card 1 (Connected) -->
+<div class="liquid-glass rounded-2xl p-6 flex flex-col glossy-border group hover:bg-white/[0.03] transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="size-14 rounded-xl bg-white/10 flex items-center justify-center p-2 overflow-hidden border border-white/5">
+<img alt="Follow Up Boss" class="w-full h-auto" data-alt="Follow Up Boss company logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZgZFKFnFa6r2z6Eakv04Zy1kwUYDJmpWGAt3Y1S4OfI1u5JklakhK1usFyBYzVn_0I9VCJybUP5c2ssvvJi0QGFy228WFm1qQoVHgVrwD_wosOdCZXkg_ZtdLickMAEg9Ep7znA6Bu6rmQP0e5_5Km1g5DLLrSpTv163lS7SeFaSarv-Zpum5YEh7EMJgyXQJMVAYT5THVHB2cOkkECpNVpYqrkw--oAQZZCM8QbmOTxzFFx1Khys4nU2_oF5MwpfwyW4jzuoITg"/>
+</div>
+<div class="flex items-center gap-2 bg-primary/20 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-primary/30">
+                                Active
+                            </div>
+</div>
+<h3 class="text-white text-xl font-bold mb-2">Follow Up Boss</h3>
+<p class="text-text-secondary text-sm mb-8 leading-relaxed">
+                            Sync Buyer Contacts, lead stages, and Agreement Status automatically to secure commission payouts.
+                        </p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                Auto-sync enabled
+                            </span>
+<button class="px-5 py-2 bg-white/10 text-white rounded-xl text-sm font-bold hover:bg-white/20 transition-all">
+                                Manage
+                            </button>
+</div>
+</div>
+<!-- Integration Card 2 (Connected) -->
+<div class="liquid-glass rounded-2xl p-6 flex flex-col glossy-border group hover:bg-white/[0.03] transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="size-14 rounded-xl bg-white/10 flex items-center justify-center p-2 overflow-hidden border border-white/5">
+<img alt="Dotloop" class="w-full h-auto" data-alt="Dotloop company logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALzisQ0ZB-lYoPfqrT8yZDxmly5xIPahV42XRqt30-eA0aqM4BBSW7qtyb-5E5AuN9Jd_nyarU8Xc4hHSQJcJps0De4Urn-Pw6bn52ZdjM8HoDg7FVYtR9MJzQASAWqGiQJyJwNCgcc0JPdaSwaDFNKzLQ3AcHLrcl51PSfkRiRsEw3ZhX8W6DYhrKD8JD1Ci7JqgGCCs2t26o5fQJRdyY2KtQphTzutU_QufpBrCYtzxuVacvW2ssvH2-gdbvRTVjRBuDkfBtf74"/>
+</div>
+<div class="flex items-center gap-2 bg-primary/20 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border border-primary/30">
+                                Active
+                            </div>
+</div>
+<h3 class="text-white text-xl font-bold mb-2">Dotloop</h3>
+<p class="text-text-secondary text-sm mb-8 leading-relaxed">
+                            Automate Commission Guarantee Documentation and legal disclosures for all active transactions.
+                        </p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                Bi-directional sync
+                            </span>
+<button class="px-5 py-2 bg-white/10 text-white rounded-xl text-sm font-bold hover:bg-white/20 transition-all">
+                                Manage
+                            </button>
+</div>
+</div>
+<!-- Integration Card 3 (Not Connected) -->
+<div class="liquid-glass rounded-2xl p-6 flex flex-col border border-white/5 group hover:border-primary/40 transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="size-14 rounded-xl bg-white/5 flex items-center justify-center p-2 overflow-hidden border border-white/5 grayscale group-hover:grayscale-0 transition-all">
+<img alt="Salesforce" class="w-full h-auto" data-alt="Salesforce company logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO4D-kk29EjWw-9geBLHqCBjXgPKoobZLqa8ncINQ1X-nHAvN-gEK5nstsyDoJnQPUoXkBfIlJn5jAGDKIZE7b-7FCToGr7JsiTobiriGk63U4HXgWWH-X10YGSvWoFinnP4iiKR-VteM8ygxyJf7sshDsUl9-GNdu3osXToJnfmkOusHZqirIx10gC8C2IP4JAQZX14SS_eon5k2Svz644SH9b_wtg97lc-N1QhcHZPOS0eevhpeHCIxzmL5c21NkrAximumhBzY"/>
+</div>
+</div>
+<h3 class="text-white text-xl font-bold mb-2">Salesforce</h3>
+<p class="text-text-secondary text-sm mb-8 leading-relaxed">
+                            Enterprise-grade lead and deal synchronization for high-volume brokerages and teams.
+                        </p>
+<div class="mt-auto">
+<button class="w-full py-3 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/10">
+                                Connect Platform
+                            </button>
+</div>
+</div>
+<!-- Integration Card 4 (Not Connected) -->
+<div class="liquid-glass rounded-2xl p-6 flex flex-col border border-white/5 group hover:border-primary/40 transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="size-14 rounded-xl bg-white/5 flex items-center justify-center p-2 overflow-hidden border border-white/5 grayscale group-hover:grayscale-0 transition-all">
+<img alt="Chime" class="w-full h-auto" data-alt="Chime CRM logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAd1VipyowvBWrorFQle3oWZsYUCrFYezj98anxuE-YLJeBeSHm8LivmA7PyvRayyN1RPRy0U1lOlLFeAlbHRnZNDKlaIMGwH6EYHEmITlGQnW4dyZO6HMOsYDfERf601_UnxpeQmEWws-lQEyO46bJgFyhn7Gxw6Xed-n9yRWbreNH7NMyj8Zv5ID79xo4qgcvCvndYb7s5bLfHW1JPi84tMRuQoSh_0URq3a57OeqHQ1iT-Pph5Fw_ZvvxJZJF08EjqNEaGyGRs"/>
+</div>
+</div>
+<h3 class="text-white text-xl font-bold mb-2">Chime (Lofty)</h3>
+<p class="text-text-secondary text-sm mb-8 leading-relaxed">
+                            Import buyer leads directly into Dwellingly to start representation agreements instantly.
+                        </p>
+<div class="mt-auto">
+<button class="w-full py-3 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/10">
+                                Connect Platform
+                            </button>
+</div>
+</div>
+<!-- Integration Card 5 (Not Connected) -->
+<div class="liquid-glass rounded-2xl p-6 flex flex-col border border-white/5 group hover:border-primary/40 transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="size-14 rounded-xl bg-white/5 flex items-center justify-center p-2 overflow-hidden border border-white/5 grayscale group-hover:grayscale-0 transition-all">
+<span class="material-symbols-outlined text-white text-3xl">hub</span>
+</div>
+</div>
+<h3 class="text-white text-xl font-bold mb-2">Zapier</h3>
+<p class="text-text-secondary text-sm mb-8 leading-relaxed">
+                            Connect Dwellingly to 5,000+ apps. Create custom workflows for commission tracking and alerts.
+                        </p>
+<div class="mt-auto">
+<button class="w-full py-3 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/10">
+                                Connect Platform
+                            </button>
+</div>
+</div>
+<!-- Add New Custom -->
+<div class="border-2 border-dashed border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:border-primary/40 hover:bg-white/[0.02] transition-all cursor-pointer group">
+<div class="size-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-white group-hover:text-primary">add</span>
+</div>
+<div class="text-center">
+<p class="text-white font-bold">Request Integration</p>
+<p class="text-text-secondary text-xs mt-1">Don't see your stack?</p>
+</div>
+</div>
+</div>
+<!-- Advanced Webhooks Section -->
+<div class="mt-20">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<h2 class="text-white text-2xl font-bold">Developer Tools &amp; API</h2>
+</div>
+<div class="liquid-glass rounded-2xl p-8 glossy-border">
+<div class="flex flex-col lg:flex-row gap-12">
+<div class="flex-1 space-y-4">
+<h3 class="text-white text-lg font-bold">Webhooks</h3>
+<p class="text-text-secondary text-sm leading-relaxed">
+                                    Receive real-time notifications on your own server when representation agreements are signed or commission guarantees are issued.
+                                </p>
+<div class="bg-black/40 rounded-xl p-4 border border-white/5 flex items-center justify-between">
+<code class="text-primary text-xs font-mono">https://api.dwellingly.com/v1/webhooks/config...</code>
+<button class="text-text-secondary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<h3 class="text-white text-lg font-bold">API Access</h3>
+<p class="text-text-secondary text-sm leading-relaxed">
+                                    Full REST API access for custom infrastructure. Generate keys to build your own dashboard extensions or mobile apps.
+                                </p>
+<button class="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-xl border border-white/10 transition-all font-bold text-sm">
+<span class="material-symbols-outlined text-sm">key</span>
+                                    Manage API Keys
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Security Footer Note -->
+<div class="mt-16 text-center space-y-2 pb-12">
+<div class="flex items-center justify-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span class="text-xs font-bold uppercase tracking-[0.2em]">Secure Data Sync</span>
+</div>
+<p class="text-text-secondary text-xs max-w-lg mx-auto italic">
+                        All integrations use AES-256 encryption. Dwellingly never shares your commission data with third parties without your explicit consent.
+                    </p>
+</div>
+</main>
+</div>
+</div>
+</body></html>

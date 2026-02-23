@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding Step 2: Compensation Defaults | Dwellingly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#308875",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0f1413",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #308875;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 10px rgba(48, 136, 117, 0.5);
+        }
+        .slider-thumb::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #308875;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen selection:bg-primary/30">
+<!-- Top Navigation -->
+<nav class="border-b border-slate-200 dark:border-primary/20 px-6 py-4 flex items-center justify-between sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<span class="text-xl font-bold tracking-tight">Dwellingly</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-4 text-sm font-medium text-slate-500 dark:text-slate-400">
+<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">check_circle</span> Basics</span>
+<span class="text-primary font-bold">02 Compensation</span>
+<span>03 Branding</span>
+<span>04 Finalize</span>
+</div>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-primary/20"></div>
+<div class="size-9 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+<img class="object-cover size-full" data-alt="User profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvgkyxSuFN72oo0rwcWX7Y0s3qQbRti0u6b4FOsdXfN1bs950OBu9BBDIGHpyv4iF-Jd4T1e08IX0NbaQvZLj-t6gmr9Gc6QcFmssYGn9b60MlEjwjP2FB2cIBuQrRRCyNwYx4JGhUZ6_jQG5w68ZeuMDs46AUzQENQ7bXzDd_RG-KfsuqcHIW0VbDnmPZ79bUk3-mbFZR-_aW4VuTiiDp1a8ElVvH6ojKuNO2AfOAh7JCzCUelB5NRE545r8evW_DhHLGnSffN2I"/>
+</div>
+</div>
+</nav>
+<main class="max-w-4xl mx-auto px-6 py-12 md:py-20">
+<!-- Header Section -->
+<div class="mb-10 text-center">
+<span class="text-primary font-bold text-sm uppercase tracking-widest mb-3 block">Step 2 of 4</span>
+<h1 class="text-4xl md:text-5xl font-black mb-4 tracking-tight">Set Your Professional Value</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+                Define your standard rates and how you communicate them to clients. These defaults will automate your buyer representation agreements.
+            </p>
+</div>
+<div class="glass-card rounded-xl p-8 md:p-12 space-y-12">
+<!-- Standard Commission -->
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-xl font-bold">Standard Commission Rate</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Your preferred percentage for buyer representation.</p>
+</div>
+<div class="text-3xl font-bold text-primary">3.0%</div>
+</div>
+<div class="relative py-4">
+<input class="slider-thumb w-full h-2 bg-slate-200 dark:bg-primary/20 rounded-lg appearance-none cursor-pointer" max="6" min="1" step="0.1" type="range" value="3.0"/>
+<div class="flex justify-between mt-4 text-xs font-medium text-slate-500 dark:text-slate-400">
+<span>1.0%</span>
+<span>2.0%</span>
+<span>3.0%</span>
+<span>4.0%</span>
+<span>5.0%</span>
+<span>6.0%</span>
+</div>
+</div>
+</div>
+<!-- Minimum Service Fee -->
+<div class="grid md:grid-cols-2 gap-8 items-center border-t border-slate-200 dark:border-primary/10 pt-10">
+<div class="space-y-2">
+<h3 class="text-xl font-bold">Minimum Service Fee</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Ensures you are fairly compensated for smaller transactions or complex consulting work.</p>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-slate-500">
+<span class="material-symbols-outlined text-lg">attach_money</span>
+</div>
+<input class="w-full pl-10 pr-4 py-4 bg-background-light dark:bg-background-dark/50 border border-slate-200 dark:border-primary/20 rounded-lg text-xl font-bold focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" type="text" value="2,500"/>
+<div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400 text-sm">
+                        USD
+                    </div>
+</div>
+</div>
+<!-- Transparency Framing Toggle -->
+<div class="bg-primary/5 dark:bg-primary/10 rounded-xl p-6 border border-primary/20">
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-4">
+<div class="mt-1 size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Transparency Framing</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Automatically append a professional fee justification to your agreements to secure trust and clear compliance.</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-7 bg-slate-300 dark:bg-primary/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Preview Box -->
+<div class="mt-4 glass-card rounded-lg p-4 border border-primary/10 bg-black/10">
+<div class="flex items-center gap-2 mb-2 text-xs font-bold uppercase tracking-widest text-primary">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                        Preview Explanation
+                    </div>
+<p class="text-sm italic text-slate-400 leading-relaxed">
+                        "This commission rate of <span class="text-primary font-bold">3.0%</span> reflects the specialized fiduciary services, market expertise, and comprehensive negotiation support provided to ensure your interests are protected throughout the transaction, independent of seller concessions."
+                    </p>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-slate-200 dark:border-primary/10">
+<button class="w-full md:w-auto px-8 py-3 text-slate-500 dark:text-slate-400 font-bold hover:text-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Back
+                </button>
+<button class="w-full md:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-12 py-4 rounded-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02]">
+                    Save &amp; Activate
+                    <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+</div>
+</div>
+<!-- Trust Indicator -->
+<div class="mt-12 flex items-center justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">security</span>
+<span class="text-xs font-medium uppercase tracking-widest">NAR Compliant</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">lock</span>
+<span class="text-xs font-medium uppercase tracking-widest">Bank-Grade Encryption</span>
+</div>
+</div>
+</main>
+<!-- Background Decoration Elements -->
+<div class="fixed top-[-10%] left-[-10%] size-[40%] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="fixed bottom-[-10%] right-[-10%] size-[40%] bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+</body></html>

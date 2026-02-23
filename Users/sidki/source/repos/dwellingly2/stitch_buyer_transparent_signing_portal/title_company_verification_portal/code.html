@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Title Company Verification Portal - Dwellingly</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Public Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#308843",
+              "primary-glass": "rgba(48, 136, 67, 0.2)",
+              "background-light": "#f6f8f6",
+              "background-dark": "#0A0A0A", // User requested #0A0A0A
+              "glass-bg": "rgba(20, 20, 20, 0.6)",
+              "glass-border": "rgba(255, 255, 255, 0.08)",
+            },
+            fontFamily: {
+              "display": ["Public Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+            backdropBlur: {
+              'xs': '2px',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom Glassmorphism Utilities */
+        .glass-panel {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.7) 0%, rgba(10, 10, 10, 0.8) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        .glass-input {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+        }
+
+        .glass-input:focus-within {
+            border-color: #308843;
+            box-shadow: 0 0 0 2px rgba(48, 136, 67, 0.2);
+        }
+
+        /* Subtle grid background pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden bg-grid-pattern">
+<!-- Top Navigation -->
+<header class="w-full px-6 py-4 flex items-center justify-between border-b border-white/5 backdrop-blur-sm sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-lg bg-primary/20 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-white text-lg font-bold leading-tight tracking-tight">Dwellingly</h1>
+<span class="text-slate-400 text-xs font-medium uppercase tracking-wider">Verification Portal</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden md:flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                Support
+            </a>
+<div class="h-8 w-px bg-white/10 mx-2 hidden md:block"></div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-sm font-bold text-white">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+<span>J. Thompson</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center justify-start py-12 px-4 md:px-6 relative z-10 w-full max-w-7xl mx-auto">
+<!-- Hero Section -->
+<div class="w-full max-w-3xl flex flex-col items-center text-center mb-12 animate-fade-in-up">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Official Registry
+            </div>
+<h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4 drop-shadow-xl">
+                Verify Commission Certificate
+            </h2>
+<p class="text-lg text-slate-400 max-w-xl mx-auto leading-relaxed">
+                Securely validate agent representation and commission guarantees instantly against the Dwellingly ledger.
+            </p>
+</div>
+<!-- Search Card -->
+<div class="w-full max-w-2xl glass-panel rounded-2xl p-6 md:p-8 mb-16 relative overflow-hidden group">
+<!-- Decorative Glow -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent blur-sm"></div>
+<label class="block mb-3 text-sm font-medium text-slate-300 ml-1">Certificate ID</label>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="glass-input flex flex-1 items-center rounded-xl h-14 px-4 transition-all duration-300 group-focus-within:ring-2 group-focus-within:ring-primary/50">
+<span class="material-symbols-outlined text-slate-500 mr-3 text-[24px]">qr_code_scanner</span>
+<input class="bg-transparent border-none text-white placeholder-slate-500 focus:ring-0 w-full text-lg tracking-wide font-mono" placeholder="e.g., DW-8392-XA" spellcheck="false" type="text"/>
+<span class="material-symbols-outlined text-slate-600 text-[20px] cursor-pointer hover:text-slate-400">cancel</span>
+</div>
+<button class="h-14 px-8 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold text-lg shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2 whitespace-nowrap">
+<span>Verify</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs text-slate-500 justify-center md:justify-start">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span>256-bit Encrypted Lookup</span>
+</div>
+</div>
+<!-- Recent Verifications Table -->
+<div class="w-full max-w-5xl flex flex-col gap-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-lg font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history</span>
+                    Recent Lookups
+                </h3>
+<button class="text-xs text-primary font-bold hover:underline">Export History</button>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/5 bg-white/[0.02]">
+<th class="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-slate-400">Certificate ID</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-slate-400">Status</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-slate-400">Agent Name</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-slate-400 text-right">Closing Date</th>
+<th class="py-4 px-6 text-xs font-semibold uppercase tracking-wider text-slate-400 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 text-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="py-4 px-6 font-mono text-slate-200">DW-9921-AB</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-primary/20 text-green-400 border border-primary/20">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                        Verified
+                                    </span>
+</td>
+<td class="py-4 px-6 text-white font-medium">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-slate-700 flex items-center justify-center text-[10px] text-white font-bold">SJ</div>
+                                        Sarah Jenkins
+                                    </div>
+</td>
+<td class="py-4 px-6 text-slate-400 text-right">Oct 24, 2024</td>
+<td class="py-4 px-6 text-right">
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="py-4 px-6 font-mono text-slate-200">DW-1102-MC</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-primary/20 text-green-400 border border-primary/20">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                        Verified
+                                    </span>
+</td>
+<td class="py-4 px-6 text-white font-medium">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-slate-700 flex items-center justify-center text-[10px] text-white font-bold">MR</div>
+                                        Michael Ross
+                                    </div>
+</td>
+<td class="py-4 px-6 text-slate-400 text-right">Oct 22, 2024</td>
+<td class="py-4 px-6 text-right">
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="py-4 px-6 font-mono text-slate-200">DW-3391-XY</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+<span class="material-symbols-outlined text-[14px]">pending</span>
+                                        Pending
+                                    </span>
+</td>
+<td class="py-4 px-6 text-white font-medium">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-slate-700 flex items-center justify-center text-[10px] text-white font-bold">DK</div>
+                                        David Kim
+                                    </div>
+</td>
+<td class="py-4 px-6 text-slate-400 text-right">Nov 01, 2024</td>
+<td class="py-4 px-6 text-right">
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/[0.02] transition-colors group">
+<td class="py-4 px-6 font-mono text-slate-200">DW-4412-ZZ</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                                        Invalid
+                                    </span>
+</td>
+<td class="py-4 px-6 text-white font-medium">
+<span class="text-slate-500 italic">--</span>
+</td>
+<td class="py-4 px-6 text-slate-400 text-right">--</td>
+<td class="py-4 px-6 text-right">
+<button class="text-slate-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between border-t border-white/5 bg-white/[0.01] px-6 py-3">
+<span class="text-xs text-slate-500">Showing 1-4 of 24 results</span>
+<div class="flex items-center gap-2">
+<button class="p-1 rounded-md text-slate-400 hover:bg-white/5 hover:text-white disabled:opacity-50">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="p-1 rounded-md text-slate-400 hover:bg-white/5 hover:text-white">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Security Badges -->
+<footer class="w-full py-8 border-t border-white/5 mt-auto bg-black/40 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white text-[24px]">security</span>
+<span class="text-xs font-bold text-slate-300">SOC2 Compliant</span>
+</div>
+<div class="h-4 w-px bg-white/20"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white text-[24px]">lock_person</span>
+<span class="text-xs font-bold text-slate-300">GDPR Ready</span>
+</div>
+<div class="h-4 w-px bg-white/20"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white text-[24px]">verified</span>
+<span class="text-xs font-bold text-slate-300">Official Partner</span>
+</div>
+</div>
+<p class="text-xs text-slate-600">
+                © 2024 Dwellingly Inc. Restricted access for Title Officers only.
+            </p>
+</div>
+</footer>
+<!-- Background Decoration Image (Abstract) -->
+<div class="fixed bottom-0 right-0 -z-10 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="fixed top-0 left-0 -z-10 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+</body></html>

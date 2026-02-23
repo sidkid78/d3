@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dwellingly | Agent Notification &amp; Activity Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#308875",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0A0A0A",
+                        "neutral-gray": "#9B9C9C",
+                        "danger-glow": "#ef4444",
+                        "success-glow": "#22c55e",
+                        "info-glow": "#3b82f6"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .notification-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glow-red { box-shadow: 0 0 15px -3px rgba(239, 68, 68, 0.3); border-left: 3px solid #ef4444; }
+        .glow-green { box-shadow: 0 0 15px -3px rgba(34, 197, 94, 0.3); border-left: 3px solid #22c55e; }
+        .glow-blue { box-shadow: 0 0 15px -3px rgba(59, 130, 246, 0.3); border-left: 3px solid #3b82f6; }
+        
+        .timeline-line {
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: -24px;
+            width: 2px;
+            background: linear-gradient(to bottom, #308875 0%, rgba(48, 136, 117, 0.1) 100%);
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0A0A0A;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-slate-100 overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-white/10 px-8 py-4 bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">account_balance_wallet</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-slate-100">Dwellingly</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="#">Buyer Agreements</a>
+<a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors text-primary" href="#">Activity Center</a>
+<a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="#">Compliance</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-neutral-gray text-xl">search</span>
+<input class="bg-white/5 border-none rounded-full pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-primary" placeholder="Search interactions..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-white/5 text-neutral-gray relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-background-dark"></span>
+</button>
+<div class="size-9 rounded-full bg-gradient-to-tr from-primary to-emerald-400 p-[1px]">
+<img alt="Agent Profile" class="rounded-full w-full h-full object-cover" data-alt="Professional real estate agent headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNj7X7U-wmgPlMDeCo5unW9ZxtnLdxTgAy3zZbTRaoXOKMTEarrJJ1XeRWvFIS_yAlZC3OczAneCDzxlw7zdCTjDN624_M4Izhf2y87l1Di5lTTwXEwzH3Y820xvPZ8DDT1B3WoeDZi7SgYYzAUCrQzWWidh60mEIjFGmLzvmC2OrO8lhKBQehdAPDE_DdwoEk6UQaTM-kBjwEloIuvrYbyfZ3gxFrmmhJpPv32GIITu_DyeSo_Kk3W-uW3EabNMQRcyj_4W2FL58"/>
+</div>
+</div>
+</header>
+<main class="flex h-[calc(100vh-73px)] relative">
+<!-- Dashboard Background Content (Activity Feed) -->
+<div class="flex-1 p-8 overflow-y-auto custom-scrollbar pr-[420px]">
+<div class="max-w-4xl mx-auto">
+<div class="mb-10">
+<h1 class="text-4xl font-bold mb-2">Activity Feed</h1>
+<p class="text-neutral-gray">Live tracking of your commission pipeline and buyer interactions.</p>
+</div>
+<!-- Stats Bar -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="p-6 rounded-xl bg-white/5 border border-white/10">
+<p class="text-neutral-gray text-xs uppercase tracking-widest font-bold mb-1">Total Protected</p>
+<h3 class="text-3xl font-bold text-primary">$142,500</h3>
+<div class="flex items-center gap-1 mt-2 text-success-glow text-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12.4% vs last month</span>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-white/5 border border-white/10">
+<p class="text-neutral-gray text-xs uppercase tracking-widest font-bold mb-1">Active Leads</p>
+<h3 class="text-3xl font-bold text-slate-100">18</h3>
+<p class="text-neutral-gray text-sm mt-2">6 requiring signature</p>
+</div>
+<div class="p-6 rounded-xl bg-white/5 border border-white/10">
+<p class="text-neutral-gray text-xs uppercase tracking-widest font-bold mb-1">Lead Health</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="h-2 flex-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+<span class="text-sm font-bold">85%</span>
+</div>
+</div>
+</div>
+<!-- Timeline -->
+<div class="space-y-8 relative">
+<!-- Timeline Item -->
+<div class="relative pl-10">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-1 size-6 rounded-full bg-primary flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-xs text-white">done_all</span>
+</div>
+<div class="bg-white/5 p-5 rounded-lg border border-white/10 hover:bg-white/[0.07] transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-slate-100">Agreement Signed: Sarah Smith</h4>
+<span class="text-neutral-gray text-xs">2 hours ago</span>
+</div>
+<p class="text-neutral-gray text-sm leading-relaxed mb-3">
+                                Buyer Representation Agreement for <span class="text-slate-200">Unit 4B, Emerald Heights</span> has been digitally signed and verified. Commission of 2.5% is now locked.
+                            </p>
+<div class="flex gap-3">
+<span class="px-2 py-1 rounded bg-success-glow/10 text-success-glow text-[10px] font-bold uppercase">Commission Secured</span>
+<span class="px-2 py-1 rounded bg-white/10 text-neutral-gray text-[10px] font-bold uppercase">Real-time</span>
+</div>
+</div>
+</div>
+<!-- Timeline Item -->
+<div class="relative pl-10">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-1 size-6 rounded-full bg-info-glow flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-xs text-white">visibility</span>
+</div>
+<div class="bg-white/5 p-5 rounded-lg border border-white/10 hover:bg-white/[0.07] transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-slate-100">Reviewing Terms: John Doe</h4>
+<span class="text-neutral-gray text-xs">15 minutes ago</span>
+</div>
+<p class="text-neutral-gray text-sm leading-relaxed">
+                                Client is currently viewing the <span class="text-info-glow">Buyer Agency Disclosure</span>. Engagement duration: 4m 22s.
+                            </p>
+</div>
+</div>
+<!-- Timeline Item -->
+<div class="relative pl-10">
+<div class="timeline-line"></div>
+<div class="absolute left-0 top-1 size-6 rounded-full bg-primary flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-xs text-white">link</span>
+</div>
+<div class="bg-white/5 p-5 rounded-lg border border-white/10">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-slate-100">Link Opened: Mike Ross</h4>
+<span class="text-neutral-gray text-xs">2 minutes ago</span>
+</div>
+<p class="text-neutral-gray text-sm">
+                                Secure agreement link accessed from IP: 192.168.1.45 (New York, US).
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide-out Right Panel (Notification Center) -->
+<aside class="glass-panel w-[400px] h-full absolute right-0 top-0 z-40 flex flex-col">
+<div class="p-6 border-b border-white/10">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold tracking-tight">Notification Center</h2>
+<button class="text-neutral-gray hover:text-white">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 rounded-full bg-primary text-white text-xs font-bold">All</button>
+<button class="px-3 py-1.5 rounded-full bg-white/5 text-neutral-gray text-xs font-bold hover:bg-white/10">Action Required</button>
+<button class="px-3 py-1.5 rounded-full bg-white/5 text-neutral-gray text-xs font-bold hover:bg-white/10">System</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Action Required Group -->
+<div>
+<h3 class="text-neutral-gray text-[10px] font-bold uppercase tracking-widest mb-4">Action Required</h3>
+<div class="space-y-4">
+<!-- Red Card -->
+<div class="notification-card glow-red rounded-lg p-4">
+<div class="flex gap-3">
+<div class="size-10 rounded-full bg-danger-glow/20 flex items-center justify-center text-danger-glow shrink-0">
+<span class="material-symbols-outlined">contract_edit</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-100">Signature Overdue</h4>
+<p class="text-xs text-neutral-gray mt-1">James Henderson hasn't signed the agreement sent 48 hours ago.</p>
+<div class="mt-4 flex gap-2">
+<button class="bg-primary hover:bg-primary/80 text-white text-[11px] font-bold py-1.5 px-3 rounded-lg transition-all">Resend Link</button>
+<button class="bg-white/5 hover:bg-white/10 text-white text-[11px] font-bold py-1.5 px-3 rounded-lg border border-white/10">Call Buyer</button>
+</div>
+<p class="text-[10px] text-neutral-gray mt-3">Priority: High • Oct 24, 09:12 AM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Protected Group -->
+<div>
+<h3 class="text-neutral-gray text-[10px] font-bold uppercase tracking-widest mb-4">Protected</h3>
+<div class="space-y-4">
+<!-- Green Card -->
+<div class="notification-card glow-green rounded-lg p-4">
+<div class="flex gap-3">
+<div class="size-10 rounded-full bg-success-glow/20 flex items-center justify-center text-success-glow shrink-0">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="text-sm font-bold text-slate-100">Commission Secured</h4>
+<span class="text-[10px] text-neutral-gray">Just now</span>
+</div>
+<p class="text-xs text-neutral-gray mt-1">Sarah Smith signed. Dwellingly Certificate #DW-9821 is now active.</p>
+<button class="mt-3 w-full bg-white/5 hover:bg-white/10 text-primary text-[11px] font-bold py-2 rounded-lg border border-primary/30 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                                        View Certificate
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- System Group -->
+<div>
+<h3 class="text-neutral-gray text-[10px] font-bold uppercase tracking-widest mb-4">System Updates</h3>
+<div class="space-y-4">
+<!-- Blue Card -->
+<div class="notification-card glow-blue rounded-lg p-4">
+<div class="flex gap-3">
+<div class="size-10 rounded-full bg-info-glow/20 flex items-center justify-center text-info-glow shrink-0">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-100">Compliance Update</h4>
+<p class="text-xs text-neutral-gray mt-1">New NAR settlement disclosure requirements added for 2024. Please review updated templates.</p>
+<p class="text-[10px] text-neutral-gray mt-3">Oct 23, 04:30 PM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel Footer Info -->
+<div class="p-6 bg-white/5 border-t border-white/10">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs text-neutral-gray">Status</span>
+<span class="flex items-center gap-1.5 text-xs text-success-glow">
+<span class="size-1.5 bg-success-glow rounded-full animate-pulse"></span>
+                        Live Connection
+                    </span>
+</div>
+<div class="bg-background-dark p-3 rounded-lg border border-white/10 flex items-center gap-3">
+<div class="size-8 bg-primary/20 rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<div>
+<p class="text-[10px] text-neutral-gray font-bold uppercase leading-none">Subscription</p>
+<p class="text-xs text-slate-100 font-medium">Enterprise Tier Active</p>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[100px]"></div>
+</div>
+</body></html>

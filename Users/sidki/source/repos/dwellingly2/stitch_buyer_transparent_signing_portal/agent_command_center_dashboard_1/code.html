@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dwellingly - Agent Command Center</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#308976",
+                        "primary-hover": "#266e5e",
+                        "secondary-brand": "#4D726B",
+                        "bg-main": "#0A0A0A",
+                        "card-bg": "rgba(0, 0, 0, 0.7)",
+                        "text-main": "#FFFFFF",
+                        "text-muted": "#9B9C9C",
+                        "glass-border": "rgba(255, 255, 255, 0.1)",
+                        "glass-highlight": "rgba(255, 255, 255, 0.05)",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "sans": ["Public Sans", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'glass-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.4) 100%)',
+                        'gloss-shine': 'linear-gradient(to bottom, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%)',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(48, 137, 118, 0.3)',
+                        'deep': '0 10px 30px -10px rgba(0, 0, 0, 0.8)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-card-bg backdrop-blur-xl border border-glass-border shadow-deep relative overflow-hidden;
+            }
+            .glass-panel::before {
+                content: '';
+                @apply absolute inset-0 bg-gloss-shine pointer-events-none;
+            }
+            .glass-input {
+                @apply bg-black/40 border-glass-border text-text-main placeholder-text-muted focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300;
+            }
+            .glass-button {
+                @apply bg-primary hover:bg-primary-hover text-white shadow-lg shadow-primary/20 hover:shadow-primary/40 border border-white/10 transition-all duration-300;
+            }
+        }::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4D726B; 
+        }
+    </style>
+</head>
+<body class="bg-bg-main text-text-main font-display min-h-screen selection:bg-primary selection:text-white dark">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 bg-black/60 backdrop-blur-lg border-r border-glass-border flex flex-col justify-between h-full hidden md:flex shrink-0 z-20">
+<div class="p-6 flex flex-col gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary/20 rounded-lg p-2 flex items-center justify-center text-primary border border-primary/20 shadow-[0_0_15px_rgba(48,137,118,0.2)]">
+<span class="material-symbols-outlined text-3xl">home_work</span>
+</div>
+<div>
+<h1 class="text-white text-lg font-bold leading-tight tracking-wide">Dwellingly</h1>
+<p class="text-secondary-brand text-xs font-medium uppercase tracking-wider">Agent Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 border border-primary/20 text-primary shadow-[0_0_10px_rgba(48,137,118,0.1)] transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-semibold">Command Center</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-muted hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Agreements</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-muted hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Contacts</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-muted hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Commissions</span>
+</a>
+</nav>
+</div>
+<div class="p-4 border-t border-glass-border">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-muted hover:text-white hover:bg-white/5 transition-colors mb-2" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<div class="flex items-center gap-3 px-3 py-3 mt-2 rounded-lg bg-white/5 border border-white/5 backdrop-blur-sm">
+<div class="h-8 w-8 rounded-full bg-secondary-brand/30 border border-secondary-brand/50 overflow-hidden shrink-0">
+<img alt="Agent Profile" class="h-full w-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnf3wQHUu8AdkpC_vX7kwOwJQmu1YjJWkMNfCT16Q5jrHmIrhohaoMEdfAJxhZX9uEnDL9GBt0dQgF1kRZdh5VQZb4Xa8NPWjOFvhC5Y6Bqhx6YL6NDPAlbAp1ief8yCr-dhUZHRWCcXbIS7BZhhhmkMPGqEBLNyPcUp-pPZ19yQba97hrOUxd3SrDzX6-lM4OwxouuqlskJ0jJ8AB3lwlJ0kK4tRXUnhjONvjQJADcX-OY0xSDu5mcZurJoQUboX4-B6LleLgoFc"/>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="text-sm font-semibold text-white truncate">Alex Morgan</p>
+<p class="text-xs text-secondary-brand truncate">Top Agent</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 h-full overflow-y-auto overflow-x-hidden relative">
+<div class="absolute top-0 left-0 w-full h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary-brand/10 rounded-full blur-[100px] pointer-events-none translate-y-1/3"></div>
+<header class="bg-black/60 backdrop-blur-lg border-b border-glass-border sticky top-0 z-30 px-6 py-4 md:hidden flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">home_work</span>
+<h1 class="font-bold text-lg text-white">Dwellingly</h1>
+</div>
+<button class="text-text-muted hover:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<div class="p-6 md:p-10 max-w-7xl mx-auto flex flex-col gap-8 relative z-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-bold text-white tracking-tight drop-shadow-md">Command Center</h1>
+<p class="text-text-muted mt-1 text-base font-light">Manage your buyer agreements and commission status.</p>
+</div>
+<div class="flex items-center gap-2 text-sm text-text-muted bg-black/40 px-3 py-1.5 rounded-full border border-glass-border shadow-lg backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(48,137,118,0.8)]"></span>
+                    System Operational
+                </div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 glass-panel rounded-xl flex flex-col md:flex-row">
+<div class="flex-1 p-6 flex flex-col justify-center relative z-10">
+<div class="mb-5">
+<h2 class="text-lg font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary drop-shadow-[0_0_5px_rgba(48,137,118,0.5)]">bolt</span>
+                                Quick Action: Secure a Buyer
+                            </h2>
+<p class="text-text-muted text-sm mt-1">Send a representation agreement link instantly.</p>
+</div>
+<form class="flex flex-col gap-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-xs font-semibold text-text-muted uppercase tracking-wider ml-1">Buyer Name</label>
+<input class="w-full rounded-lg glass-input" placeholder="Full Name" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-semibold text-text-muted uppercase tracking-wider ml-1">Email Address</label>
+<input class="w-full rounded-lg glass-input" placeholder="client@example.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+<div class="space-y-1">
+<label class="text-xs font-semibold text-text-muted uppercase tracking-wider ml-1">Phone (Optional)</label>
+<input class="w-full rounded-lg glass-input" placeholder="(555) 000-0000" type="tel"/>
+</div>
+<button class="w-full glass-button font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 h-[42px]" type="button">
+<span class="material-symbols-outlined text-[20px]">send</span>
+                                    Send Agreement Link
+                                </button>
+</div>
+</form>
+</div>
+<div class="hidden md:block w-1/3 bg-white/5 border-l border-glass-border p-6 flex flex-col justify-center items-center text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-50"></div>
+<div class="w-16 h-16 rounded-full bg-black/40 border border-primary/30 shadow-[0_0_15px_rgba(48,137,118,0.15)] flex items-center justify-center mb-3 text-primary relative z-10">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h3 class="font-semibold text-white relative z-10">Compliance Ready</h3>
+<p class="text-xs text-text-muted mt-2 relative z-10 leading-relaxed">All agreements are automatically updated to reflect the latest NAR settlement guidelines.</p>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex-1 glass-panel rounded-xl p-5 group">
+<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+<span class="material-symbols-outlined text-7xl text-primary">shield_lock</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-primary/10 text-primary border border-primary/20 p-1 rounded-md shadow-[0_0_10px_rgba(48,137,118,0.2)]">
+<span class="material-symbols-outlined text-sm">lock</span>
+</span>
+<p class="text-sm font-medium text-text-muted">Protected Commission</p>
+</div>
+<h3 class="text-3xl font-bold text-white tracking-tight drop-shadow-sm">$82,500</h3>
+<div class="flex items-center gap-1 mt-2 text-primary text-sm font-medium">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12% this month</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-primary to-secondary-brand opacity-70"></div>
+</div>
+<div class="flex-1 glass-panel rounded-xl p-5">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-7xl text-text-muted">help_center</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-white/5 text-text-muted border border-white/10 p-1 rounded-md">
+<span class="material-symbols-outlined text-sm">hourglass_empty</span>
+</span>
+<p class="text-sm font-medium text-text-muted">Uncertain Commission</p>
+</div>
+<h3 class="text-3xl font-bold text-white tracking-tight drop-shadow-sm">$145,000</h3>
+<div class="flex items-center gap-1 mt-2 text-text-muted text-sm">
+<span>Pending signatures</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-700 to-gray-500 opacity-50"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-bold text-white drop-shadow-sm">Transaction Pipeline</h3>
+<div class="flex gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-text-muted bg-black/30 border border-glass-border rounded-lg hover:bg-white/5 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                            Filter
+                        </button>
+<button class="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-text-muted bg-black/30 border border-glass-border rounded-lg hover:bg-white/5 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                            Export
+                        </button>
+</div>
+</div>
+<div class="glass-panel rounded-xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/5 border-b border-glass-border text-xs uppercase text-text-muted font-semibold tracking-wider">
+<th class="px-6 py-4">Buyer Name</th>
+<th class="px-6 py-4">Agreement Status</th>
+<th class="px-6 py-4">Date Sent</th>
+<th class="px-6 py-4">Est. Commission</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-glass-border">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-primary/10 border border-primary/20 text-primary flex items-center justify-center font-bold text-sm shadow-[0_0_8px_rgba(48,137,118,0.2)]">
+                                                JD
+                                            </div>
+<div>
+<p class="text-sm font-medium text-white group-hover:text-primary transition-colors">Jane Doe</p>
+<p class="text-xs text-text-muted">Residential Buyer</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30 shadow-[0_0_8px_rgba(48,137,118,0.15)]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                            Signed
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-muted">
+                                        Oct 24, 2023
+                                    </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                                        $12,500
+                                    </td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="text-primary hover:text-white font-medium text-sm flex items-center justify-end gap-1 ml-auto transition-colors">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                            View Certificate
+                                        </button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm">
+                                                MS
+                                            </div>
+<div>
+<p class="text-sm font-medium text-white group-hover:text-primary transition-colors">Michael Smith</p>
+<p class="text-xs text-text-muted">Investor</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+                                            Sent
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-muted">
+                                        Oct 22, 2023
+                                    </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                                        $18,000
+                                    </td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="text-text-muted hover:text-white font-medium text-sm flex items-center justify-end gap-1 ml-auto transition-colors">
+<span class="material-symbols-outlined text-sm">forward_to_inbox</span>
+                                            Resend Link
+                                        </button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-sm">
+                                                EW
+                                            </div>
+<div>
+<p class="text-sm font-medium text-white group-hover:text-primary transition-colors">Emily White</p>
+<p class="text-xs text-text-muted">First-time Buyer</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-white/10 text-text-muted border border-white/10">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                                            Pending
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-muted">
+                                        Oct 20, 2023
+                                    </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                                        $9,500
+                                    </td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="text-text-muted hover:text-white font-medium text-sm flex items-center justify-end gap-1 ml-auto transition-colors">
+<span class="material-symbols-outlined text-sm">edit</span>
+                                            Edit Draft
+                                        </button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-sm">
+                                                RJ
+                                            </div>
+<div>
+<p class="text-sm font-medium text-white group-hover:text-primary transition-colors">Robert Johnson</p>
+<p class="text-xs text-text-muted">Luxury Buyer</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/30 shadow-[0_0_8px_rgba(48,137,118,0.15)]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                            Signed
+                                        </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-muted">
+                                        Oct 15, 2023
+                                    </td>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                                        $45,000
+                                    </td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="text-primary hover:text-white font-medium text-sm flex items-center justify-end gap-1 ml-auto transition-colors">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                            View Certificate
+                                        </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-black/20 px-6 py-4 border-t border-glass-border flex items-center justify-between backdrop-blur-sm">
+<p class="text-sm text-text-muted">Showing <span class="font-medium text-white">1</span> to <span class="font-medium text-white">4</span> of <span class="font-medium text-white">12</span> results</p>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-sm border border-glass-border rounded bg-black/40 text-text-muted/50 cursor-not-allowed" disabled="">Previous</button>
+<button class="px-3 py-1 text-sm border border-glass-border rounded bg-black/40 text-text-muted hover:bg-white/10 hover:text-white transition-colors">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

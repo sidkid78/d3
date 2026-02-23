@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dwellingly - Listing Agent Offer Intake</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#308976",
+                        "primary-hover": "#266e5e",
+                        "secondary-brand": "#4D726B",
+                        "bg-main": "#0A0A0A",
+                        "card-bg": "rgba(0, 0, 0, 0.7)",
+                        "text-main": "#FFFFFF",
+                        "text-muted": "#9B9C9C",
+                        "glass-border": "rgba(255, 255, 255, 0.1)",
+                        "glass-highlight": "rgba(255, 255, 255, 0.05)",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "sans": ["Public Sans", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'glass-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.4) 100%)',
+                        'gloss-shine': 'linear-gradient(to bottom, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%)',
+                        'verified-gradient': 'linear-gradient(135deg, rgba(48, 137, 118, 0.15) 0%, rgba(0,0,0,0) 100%)',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(48, 137, 118, 0.3)',
+                        'deep': '0 10px 30px -10px rgba(0, 0, 0, 0.8)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-card-bg backdrop-blur-xl border border-glass-border shadow-deep relative overflow-hidden;
+            }
+            .glass-panel::before {
+                content: '';
+                @apply absolute inset-0 bg-gloss-shine pointer-events-none;
+            }
+            .glass-input {
+                @apply bg-black/40 border-glass-border text-text-main placeholder-text-muted focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300;
+            }
+            .glass-button {
+                @apply bg-primary hover:bg-primary-hover text-white shadow-lg shadow-primary/20 hover:shadow-primary/40 border border-white/10 transition-all duration-300;
+            }
+            .glass-button-secondary {
+                @apply bg-white/5 hover:bg-white/10 text-white border border-glass-border transition-all duration-300 backdrop-blur-sm;
+            }
+        }::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4D726B; 
+        }
+    </style>
+</head>
+<body class="bg-bg-main text-text-main font-display min-h-screen selection:bg-primary selection:text-white dark">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 bg-black/60 backdrop-blur-lg border-r border-glass-border flex flex-col justify-between h-full hidden md:flex shrink-0 z-20">
+<div class="p-6 flex flex-col gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary/20 rounded-lg p-2 flex items-center justify-center text-primary border border-primary/20 shadow-[0_0_15px_rgba(48,137,118,0.2)]">
+<span class="material-symbols-outlined text-3xl">home_work</span>
+</div>
+<div>
+<h1 class="text-white text-lg font-bold leading-tight tracking-wide">Dwellingly</h1>
+<p class="text-secondary-brand text-xs font-medium uppercase tracking-wider">Listing Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-muted hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 border border-primary/20 text-primary shadow-[0_0_10px_rgba(48,137,118,0.1)] transition-all" href="#">
+<span class="material-symbols-outlined">inbox</span>
+<span class="text-sm font-semibold">Offer Inbox</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-muted hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">real_estate_agent</span>
+<span class="text-sm font-medium">My Listings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-muted hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-sm font-medium">Verifications</span>
+</a>
+</nav>
+</div>
+<div class="p-4 border-t border-glass-border">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-text-muted hover:text-white hover:bg-white/5 transition-colors mb-2" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<div class="flex items-center gap-3 px-3 py-3 mt-2 rounded-lg bg-white/5 border border-white/5 backdrop-blur-sm">
+<div class="h-8 w-8 rounded-full bg-secondary-brand/30 border border-secondary-brand/50 overflow-hidden shrink-0">
+<img alt="Agent Profile" class="h-full w-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnf3wQHUu8AdkpC_vX7kwOwJQmu1YjJWkMNfCT16Q5jrHmIrhohaoMEdfAJxhZX9uEnDL9GBt0dQgF1kRZdh5VQZb4Xa8NPWjOFvhC5Y6Bqhx6YL6NDPAlbAp1ief8yCr-dhUZHRWCcXbIS7BZhhhmkMPGqEBLNyPcUp-pPZ19yQba97hrOUxd3SrDzX6-lM4OwxouuqlskJ0jJ8AB3lwlJ0kK4tRXUnhjONvjQJADcX-OY0xSDu5mcZurJoQUboX4-B6LleLgoFc"/>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="text-sm font-semibold text-white truncate">Sarah Jenkins</p>
+<p class="text-xs text-secondary-brand truncate">Listing Agent</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 h-full overflow-y-auto overflow-x-hidden relative">
+<div class="absolute top-0 left-0 w-full h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary-brand/10 rounded-full blur-[100px] pointer-events-none translate-y-1/3"></div>
+<header class="bg-black/60 backdrop-blur-lg border-b border-glass-border sticky top-0 z-30 px-6 py-4 md:hidden flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">home_work</span>
+<h1 class="font-bold text-lg text-white">Dwellingly</h1>
+</div>
+<button class="text-text-muted hover:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<div class="p-6 md:p-10 max-w-6xl mx-auto flex flex-col gap-8 relative z-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-white uppercase tracking-wider">New</span>
+<span class="text-text-muted text-sm uppercase tracking-wide font-medium">Offer Received</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-md">123 Maple St, Springfield</h1>
+<p class="text-text-muted mt-1 text-base font-light flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                            Received 2 hours ago
+                        </p>
+</div>
+<div class="flex gap-3">
+<button class="glass-button-secondary px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium">
+<span class="material-symbols-outlined text-lg">close</span>
+                            Reject
+                        </button>
+<button class="glass-button-secondary px-4 py-2 rounded-lg flex items-center gap-2 text-sm font-medium">
+<span class="material-symbols-outlined text-lg">chat</span>
+                            Message Agent
+                        </button>
+</div>
+</div>
+<div class="glass-panel rounded-2xl p-0.5 bg-gradient-to-br from-primary/30 to-transparent">
+<div class="bg-black/80 rounded-2xl p-6 md:p-8 backdrop-blur-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row gap-8 items-start relative z-10">
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-3">
+<h2 class="text-xl font-semibold text-white">Verification Check</h2>
+<div class="h-px flex-1 bg-glass-border"></div>
+</div>
+<div class="bg-verified-gradient border border-primary/20 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-5 shadow-[0_0_20px_rgba(48,137,118,0.1)]">
+<div class="h-14 w-14 rounded-full bg-primary/20 flex items-center justify-center shrink-0 border border-primary/40 shadow-[0_0_15px_rgba(48,137,118,0.3)]">
+<span class="material-symbols-outlined text-3xl text-primary">verified_user</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-lg font-bold text-white">Commission Certificate: VERIFIED</h3>
+<span class="bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded">DW-ID: 8829-XJ</span>
+</div>
+<p class="text-sm text-text-muted leading-snug">Buyer Representation Agreement is active and fully compliant with new regulations. Commission is guaranteed via Dwellingly Escrow.</p>
+</div>
+<button class="shrink-0 px-4 py-2 rounded-lg bg-black/40 border border-glass-border hover:bg-white/5 text-primary text-sm font-medium transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">gavel</span>
+                                        Review Terms
+                                    </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-white/5 rounded-lg p-4 border border-white/5 hover:border-white/10 transition-colors">
+<p class="text-xs text-text-muted uppercase tracking-wider font-semibold mb-1">Buyer Agent</p>
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 font-bold text-xs">
+                                                JD
+                                            </div>
+<span class="text-white font-medium">James Davies</span>
+</div>
+</div>
+<div class="bg-white/5 rounded-lg p-4 border border-white/5 hover:border-white/10 transition-colors">
+<p class="text-xs text-text-muted uppercase tracking-wider font-semibold mb-1">Brokerage</p>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-text-muted">apartment</span>
+<span class="text-white font-medium">Horizon Realty Group</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-80 glass-panel rounded-xl p-6 flex flex-col gap-4 bg-black/40">
+<h3 class="text-white font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">task_alt</span>
+                                    Next Steps
+                                </h3>
+<p class="text-sm text-text-muted">Accepting verification allows you to proceed with confidence knowing the commission structure is secure.</p>
+<button class="w-full glass-button font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 text-base shadow-[0_0_20px_rgba(48,137,118,0.2)]">
+<span class="material-symbols-outlined">check_circle</span>
+                                    Accept Verification
+                                </button>
+<button class="w-full glass-button-secondary py-2 px-4 rounded-lg flex items-center justify-center gap-2 text-sm text-text-muted hover:text-white">
+                                    Verify Another
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 glass-panel rounded-xl p-6">
+<h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-brand">payments</span>
+                            Offer Summary
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div class="space-y-1">
+<p class="text-xs text-text-muted uppercase tracking-wider font-semibold">Offer Price</p>
+<p class="text-3xl font-bold text-white tracking-tight">$845,000</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-text-muted uppercase tracking-wider font-semibold">Earnest Money</p>
+<p class="text-xl font-medium text-white">$25,000 (3%)</p>
+</div>
+<div class="col-span-1 md:col-span-2 h-px bg-glass-border my-2"></div>
+<div class="space-y-1">
+<p class="text-xs text-text-muted uppercase tracking-wider font-semibold">Down Payment</p>
+<p class="text-lg text-white">20% Conventional</p>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-text-muted uppercase tracking-wider font-semibold">Pre-Approval</p>
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span class="text-sm font-bold">Attached &amp; Verified</span>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-6">
+<h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-brand">rule</span>
+                            Contingencies
+                        </h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<div class="mt-0.5 h-5 w-5 rounded bg-white/5 border border-glass-border flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<p class="text-sm font-medium text-white">Inspection</p>
+<p class="text-xs text-text-muted">10 Day Period</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-0.5 h-5 w-5 rounded bg-white/5 border border-glass-border flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div>
+<p class="text-sm font-medium text-white">Appraisal Gap</p>
+<p class="text-xs text-text-muted">Cover up to $10k gap</p>
+</div>
+</li>
+<li class="flex items-start gap-3 opacity-50">
+<div class="mt-0.5 h-5 w-5 rounded bg-white/5 border border-glass-border flex items-center justify-center text-text-muted shrink-0">
+<span class="material-symbols-outlined text-sm">close</span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-muted line-through">Sale of Home</p>
+<p class="text-xs text-text-muted">Waived</p>
+</div>
+</li>
+</ul>
+<button class="mt-6 w-full text-xs text-text-muted hover:text-white flex items-center justify-center gap-1 transition-colors">
+                            View Full Contract <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

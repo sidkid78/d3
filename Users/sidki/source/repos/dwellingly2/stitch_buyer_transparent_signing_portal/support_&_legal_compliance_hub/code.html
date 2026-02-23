@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Support &amp; Legal Compliance Hub | Dwellingly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#308875",
+            "background-light": "#f6f8f7",
+            "background-dark": "#0A0A0A",
+            "glass-card": "rgba(0, 0, 0, 0.6)",
+            "legal-text": "#9B9C9C"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0A0A0A;
+    }
+    .glass-effect {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .liquid-sidebar {
+      border-right: 1px solid rgba(48, 136, 117, 0.2);
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-background-dark text-slate-100 font-display min-h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between px-8 py-4 glass-effect sticky top-0 z-50 bg-black/40">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">shield_with_house</span>
+</div>
+<h1 class="text-xl font-black tracking-tight text-white uppercase">Dwellingly</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="#">Compliance Hub</a>
+<a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="#">Brokerage Tools</a>
+<a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors" href="#">Agent Portal</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary">search</span>
+<input class="bg-black/40 border border-white/10 rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-slate-200" placeholder="Search legal database..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-[#308976] text-white px-5 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">chat_bubble</span>
+        Ask a Compliance Expert
+      </button>
+<div class="size-9 rounded-full bg-slate-800 border border-white/10 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Portrait of a professional real estate executive" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgRQvm7Rc9ZcNh4gip92xrvh82-sAWkUG4T1-LZxzBJXfxb2bPUJfJL4i8FypS1WyVyHvuvVgYCGUjJw9HMEmU6a99k1ZiINreSE2XZdeuDdXWZUncAODk5EygHVZM1BBq1RscuZSbQwR1N3VAtqLIDZmGuozKaPqci4blkWk5F_NDilEAqME9ntJI6sZX1euAvUzpuzd2Qmy5jJ7KWVL8R5JR322l2Wz9fJpT8Cmecs6omdafnmCJdfobToUwYDe5zVD36zMGJWE"/>
+</div>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden">
+<!-- Left Sidebar: Legal Categories -->
+<aside class="w-80 liquid-sidebar bg-black/20 flex flex-col shrink-0">
+<div class="p-6 border-b border-white/5">
+<h2 class="text-xs font-bold text-primary uppercase tracking-widest mb-4">Knowledge Base</h2>
+<div class="space-y-1">
+<div class="flex items-center gap-3 p-3 bg-primary/10 rounded-lg text-primary border border-primary/20 cursor-pointer">
+<span class="material-symbols-outlined">gavel</span>
+<span class="text-sm font-semibold">Legal Categories</span>
+</div>
+<div class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg text-slate-400 cursor-pointer transition-colors">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Compliance Forms</span>
+</div>
+<div class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg text-slate-400 cursor-pointer transition-colors">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="text-sm font-medium">Archived Standards</span>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto hide-scrollbar p-4 space-y-6">
+<div>
+<h3 class="px-2 mb-2 text-[10px] font-bold text-slate-600 uppercase tracking-widest">Active Regulations</h3>
+<nav class="space-y-1">
+<a class="flex items-center justify-between p-2 rounded-lg bg-white/5 text-slate-100 group" href="#">
+<span class="text-xs font-medium truncate">NAR Settlement Compliance</span>
+<span class="material-symbols-outlined text-xs text-primary">check_circle</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 text-slate-400 group transition-colors" href="#">
+<span class="text-xs font-medium truncate">TREC Form 1501 Alignment</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 text-slate-400 group transition-colors" href="#">
+<span class="text-xs font-medium truncate">Digital Signature Validity</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 text-slate-400 group transition-colors" href="#">
+<span class="text-xs font-medium truncate">Buyer Representation</span>
+</a>
+</nav>
+</div>
+<div>
+<h3 class="px-2 mb-2 text-[10px] font-bold text-slate-600 uppercase tracking-widest">Regional Guidance</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 text-slate-400 group transition-colors" href="#">
+<span class="text-xs font-medium truncate">Texas Disclosure Laws</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 text-slate-400 group transition-colors" href="#">
+<span class="text-xs font-medium truncate">California Broker Standards</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 text-slate-400 group transition-colors" href="#">
+<span class="text-xs font-medium truncate">Florida Commission Escrow</span>
+</a>
+</nav>
+</div>
+</div>
+<div class="p-4 bg-black/40 border-t border-white/5">
+<div class="p-4 glass-effect rounded-xl bg-primary/5">
+<p class="text-[10px] font-bold text-slate-500 uppercase mb-2">Security Status</p>
+<div class="flex items-center gap-2">
+<div class="size-2 bg-green-500 rounded-full animate-pulse"></div>
+<span class="text-xs font-semibold text-slate-300">End-to-End Encrypted</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Content Area: Deep-Dive Article -->
+<section class="flex-1 overflow-y-auto bg-[#0A0A0A] relative">
+<div class="max-w-4xl mx-auto px-12 py-16">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-xs font-medium text-slate-500 mb-8">
+<a class="hover:text-primary" href="#">Support</a>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Legal Knowledge Base</a>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-slate-300">NAR Settlement Compliance</span>
+</nav>
+<!-- Article Header -->
+<div class="mb-12">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-2 py-1 rounded bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider">Regulatory Standard</span>
+<span class="text-xs text-slate-500">Last updated: Oct 24, 2023 • v2.4.1</span>
+</div>
+<h2 class="text-4xl font-black text-white leading-tight mb-6">NAR Settlement Compliance &amp; Post-Settlement Infrastructure</h2>
+<p class="text-lg text-legal-text leading-relaxed font-light">
+            This documentation outlines the structural alignment of Dwellingly’s commission infrastructure with the National Association of Realtors (NAR) proposed settlement terms, ensuring all buyer representation agreements are legally binding and transparent.
+          </p>
+</div>
+<!-- Compliance Map Container -->
+<div class="mb-16">
+<div class="bg-black border border-white/10 rounded-xl overflow-hidden glass-effect">
+<div class="px-6 py-4 border-b border-white/5 flex justify-between items-center bg-white/5">
+<h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">map</span>
+                        Interactive Compliance Map
+                    </h4>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-primary"></span>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Compliant</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="size-2 rounded-full bg-amber-500"></span>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Review</span>
+</div>
+</div>
+</div>
+<div class="aspect-video bg-neutral-900 relative">
+<div class="absolute inset-0 opacity-40 grayscale hover:grayscale-0 transition-all duration-700 bg-center bg-cover" data-alt="Abstract stylized map of the United States" data-location="USA" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJgM4AfrMQ_jmkm9sZWwxOotB6SknUHJbpjUMZSIFPqTFJvfJT5p_q7xBHsUPjN_O307TMP3-5zHYg6s8TyEFBgLy7NPEIKNP0VSVEWuwYY1CE53JtpXAZSI_e9bxCS4roO_8dcINYrrgxAy_paSSgYJnhuldJMj9XBlVuzCfnMLI4AAGiVpSP7oNeeUdCaFGj8r9nOfyi0J8pUfgJJblW_uqvuFyF1vkPp16LBlbVCQEG7SRZYm3x39P0sy2-sd4m63oZxT9Uazs')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
+<!-- Hotspots -->
+<div class="absolute top-[40%] left-[30%] group">
+<div class="size-4 bg-primary rounded-full animate-ping absolute opacity-50"></div>
+<div class="size-4 bg-primary rounded-full relative border-2 border-white cursor-pointer"></div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-32 bg-black/90 p-2 rounded text-[10px] border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="font-bold block text-primary">TEXAS</span>
+                        TREC Form 1501 Fully Aligned
+                      </div>
+</div>
+<div class="absolute top-[30%] left-[60%] group">
+<div class="size-4 bg-amber-500 rounded-full animate-ping absolute opacity-50"></div>
+<div class="size-4 bg-amber-500 rounded-full relative border-2 border-white cursor-pointer"></div>
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-32 bg-black/90 p-2 rounded text-[10px] border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="font-bold block text-amber-500">ILLINOIS</span>
+                        Pending Judicial Review
+                      </div>
+</div>
+</div>
+<div class="p-4 text-center">
+<button class="text-xs font-bold text-primary hover:underline uppercase tracking-widest">Expand Regional Matrix</button>
+</div>
+</div>
+</div>
+<!-- Document Content -->
+<div class="space-y-8 text-legal-text leading-[1.8] text-base">
+<section>
+<h3 class="text-xl font-bold text-white mb-4">1.0 Mandatory Written Agreements</h3>
+<p>
+              In accordance with Section 2, Article IV of the settlement agreement, MLS participants working with a buyer must enter into a written agreement prior to touring a home. Dwellingly's <span class="text-slate-200 font-semibold">BuyerLink™</span> protocol ensures that no digital tour request can be finalized without a counter-signed representation document.
+            </p>
+</section>
+<!-- Frosted Glass Callout -->
+<div class="glass-effect bg-white/5 p-8 rounded-xl border-l-4 border-l-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">verified</span>
+</div>
+<h4 class="text-white font-bold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+                Legal Weight: Unique Certificate ID (UCID)
+            </h4>
+<p class="text-sm text-slate-300 mb-4">
+              Every transaction processed through Dwellingly is timestamped and assigned a 256-bit UCID. This ID serves as a cryptographic anchor that provides "absolute temporal verification" in judicial audits.
+            </p>
+<div class="flex items-center gap-4">
+<div class="bg-black/60 font-mono text-[10px] px-3 py-1.5 rounded border border-white/10 text-primary">
+                    DWL-HASH: 9F82-B21C-7742-X091
+                </div>
+<button class="text-[10px] font-bold uppercase tracking-tighter text-slate-500 hover:text-white transition-colors">Learn more about hashing standards</button>
+</div>
+</div>
+<section>
+<h3 class="text-xl font-bold text-white mb-4">2.0 Commission Transparency</h3>
+<p>
+              Dwellingly infrastructure removes the "Commission" field from public-facing IDX feeds while maintaining a secure, authenticated back-channel for commission guarantee certificates. This ensures compliance with the rule prohibiting offers of compensation on the MLS while protecting the agent's right to earn.
+            </p>
+<ul class="list-disc ml-6 mt-4 space-y-3">
+<li>Automatic redaction of prohibited metadata from listing contracts.</li>
+<li>Dual-factor authentication for viewing cooperation agreements.</li>
+<li>Real-time syncing with state-specific disclosure addendums.</li>
+</ul>
+</section>
+</div>
+<!-- Article Footer/Actions -->
+<div class="mt-16 pt-8 border-t border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white">
+<span class="material-symbols-outlined text-lg">download</span>
+                Download PDF Standard
+            </button>
+<button class="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white">
+<span class="material-symbols-outlined text-lg">print</span>
+                Print Version
+            </button>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] text-slate-500 font-bold uppercase">Was this helpful?</span>
+<div class="flex gap-2">
+<button class="size-8 rounded border border-white/10 flex items-center justify-center hover:bg-white/5 text-slate-400"><span class="material-symbols-outlined text-sm">thumb_up</span></button>
+<button class="size-8 rounded border border-white/10 flex items-center justify-center hover:bg-white/5 text-slate-400"><span class="material-symbols-outlined text-sm">thumb_down</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Utility Panel (Hidden on small desktops) -->
+<aside class="w-72 border-l border-white/5 bg-black/40 p-6 hidden xl:block">
+<div class="mb-8">
+<h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Legal Experts Online</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="size-10 rounded-lg object-cover" data-alt="Female legal advisor portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM9uQE7qNgel9j4ADZsZK0GK_7GF7haldQACjoAHm3L-1bzcDCOPyjNqpEAe-7K_E2zsg6jr8pfjjJsVs5ALCFZPsUadPoNwCv2rQirkbVCSjFqRqvS_ZoUNqxpX2XcFGeDu2Y6lDF30ERBjxxOPkHSg5OvFqRfcjasUOc1iDg3JH4r8irQiWkzOufn-ge20AorvEfqZXFLrxUzY-GyG0-Gra2M2N6GChXYG8Lr1RSBIjekKDy9esxLsln0fpAR55_mTwbcCHD6ks"/>
+<div class="absolute -bottom-1 -right-1 size-3 bg-primary rounded-full border-2 border-[#0A0A0A]"></div>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-200">Sarah Jenkins, JD</p>
+<p class="text-[10px] text-slate-500">Real Estate Compliance</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="size-10 rounded-lg object-cover" data-alt="Male compliance expert portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALD5xontzbP8BtaCHPwAQoSKWmvGhmhF4oqtuj0OC3vDC2sIlxDj2QcS3G-waEcyxUUJKqEisGRDSIa0vZNNyuWW8OIsCnOnC4C1wELx53p1yrRDXtZdz-ETgxaLod-D3TVdOtPuLaoxU2rFUcnlRWY-TkaOH52x_76JYWU3PjgS1jvsPwJA_fL-jEU0kSrEOvu7N6EExDzC4BenicI3_Eie9S39l6V_zcLu47rNehNWrEIRdVOUJ9fwDeezjzyZdjXO2AQeajiVU"/>
+<div class="absolute -bottom-1 -right-1 size-3 bg-primary rounded-full border-2 border-[#0A0A0A]"></div>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-200">Marcus Thorne</p>
+<p class="text-[10px] text-slate-500">Post-Settlement Ops</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 rounded-lg border border-primary/30 text-primary text-[10px] font-bold uppercase tracking-wider hover:bg-primary/10 transition-colors">Start Live Consult</button>
+</div>
+<div>
+<h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Related Documents</h4>
+<div class="space-y-3">
+<a class="block p-3 rounded-lg bg-white/5 border border-white/5 group" href="#">
+<p class="text-xs font-bold text-slate-300 group-hover:text-primary transition-colors">Seller Concession Addendum</p>
+<p class="text-[10px] text-slate-500 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">description</span>
+                PDF (2.4 MB)
+            </p>
+</a>
+<a class="block p-3 rounded-lg bg-white/5 border border-white/5 group" href="#">
+<p class="text-xs font-bold text-slate-300 group-hover:text-primary transition-colors">Buyer Representation FAQ</p>
+<p class="text-[10px] text-slate-500 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">video_library</span>
+                Video Guide
+            </p>
+</a>
+</div>
+</div>
+</aside>
+</main>
+<!-- Floating Help -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="size-14 bg-primary rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition-transform shadow-primary/40">
+<span class="material-symbols-outlined text-3xl">live_help</span>
+</button>
+</div>
+</body></html>
