@@ -1,0 +1,2 @@
+0000000000000000000000000000000000000000 fcb47a0b7ab5cbea45eee41a1d479d4e3d43569d Shaun Koehne <sidkid78@gmail.com> 1756769278 -0500	commit (initial): Initial commit from Create Next App
+fcb47a0b7ab5cbea45eee41a1d479d4e3d43569d 221d0e56da65bd30c8b7f257b53da6cf84f33fcd Shaun Koehne <sidkid78@gmail.com> 1773030058 -0500	commit: fix: resolve NextConfig type mismatch in next.config.ts and add new features
